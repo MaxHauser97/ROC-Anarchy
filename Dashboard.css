@@ -86,6 +86,9 @@ sub {
 img {
   border: 0;
 }
+.row .pull-left {
+    margin-top: 50px;
+}
 svg:not(:root) {
   overflow: hidden;
 }
