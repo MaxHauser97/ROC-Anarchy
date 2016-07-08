@@ -6,11 +6,17 @@
 		$password = $_POST["pwd"];
 	}
 	
-	if (Connect("rocanarchy")) {
+	if ($_POST && $conn = Connect("rocanarchy")) {
 		//We have connection!
+		if ($username == "leerling" && $password == "LCTA004A") {
+			echo "<div>You are logged in as leerling!</div>";
+		}
+		else {
+			echo "<div>Wrong credentials!</div>";
+		}
 	}
-	else {
-		echo "Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens.";
+	elseif($_POST) {
+		echo "<div class='error'>Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
 	}
 ?>
 
