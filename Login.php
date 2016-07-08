@@ -1,11 +1,11 @@
 <?php
 	include 'Includes.php';
-	
+
 	if ($_POST) {
 		$username = $_POST["username"];
 		$password = $_POST["pwd"];
 	}
-	
+
 	if (Connect("rocanarchy")) {
 		//We have connection!
 	}
@@ -31,27 +31,27 @@
 	<div class="container loginwrapper">
 		<h1><span class="glyphicon glyphicon-fire"></span>Welkom op ROC Anarchy!</h1>
 		<p>Toch maar wat leren dan? <br>Log in om toegang te krijgen tot de informatie die je nodig hebt om w&#233;l te slagen.</p>
-		
+
 		<form class="form-horizontal" action="Login.php" method="POST" role="form">
 			<div class="form-group">
 			  <label class="control-label col-sm-3" for="user">Gebruikersnaam:</label>
 			  <div class="col-sm-5">
 				<input type="text" class="form-control" id="username" name="username" placeholder="Gebruikersnaam" autofocus>
 			  </div>
-			</div>	
+			</div>
 
 			<div class="form-group">
 			  <label class="control-label col-sm-3" for="pwd">Wachtwoord:</label>
 			  <div class="col-sm-5">
 				<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Wachtwoord">
 			  </div>
-			</div>	
+			</div>
 
-		  <div class="form-group"> 
+		  <div class="form-group">
 			<div class="col-sm-offset-3 col-sm-10">
 			  <button type="submit" class="btn btn-default button">Inloggen</button>
 			</div>
-		  </div>			
+		  </div>
 		</form>
 	</div>
 </div>
@@ -61,7 +61,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<p class="text-center">
-				Een initiatief van leerlingen
+				Een initiatief van leerlingen :)
 				</p>
 			</div>
 		</div>
