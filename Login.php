@@ -13,7 +13,7 @@
 		$password = $_POST["pwd"];
 	}
 	
-	if ($_POST && $conn = Connect("rocanarchy")) {
+	if ($_POST && $conn = Connect()) {
 		//We have connection!
 		/*if ($username == "leerling" && $password == "LCTA004A") {
 			//echo "<div>You are logged in as leerling!</div>";
