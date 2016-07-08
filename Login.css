@@ -37,6 +37,7 @@ p{
 	padding: 30px 0px;
 	bottom: 0;
 	width: 100%;
+	position: absolute;
 }
 
 .footer p{color: #fff;}
