@@ -1,3 +1,19 @@
+<?php
+	include 'Includes.php';
+	
+	if ($_POST) {
+		$username = $_POST["username"];
+		$password = $_POST["pwd"];
+	}
+	
+	if (Connect("rocanarchy")) {
+		//We have connection!
+	}
+	else {
+		echo "Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens.";
+	}
+?>
+
  <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -16,18 +32,18 @@
 		<h1><span class="glyphicon glyphicon-fire"></span>Welkom op ROC Anarchy!</h1>
 		<p>Toch maar wat leren dan? <br>Log in om toegang te krijgen tot de informatie die je nodig hebt om w&#233;l te slagen.</p>
 		
-		<form class="form-horizontal" role="form">
+		<form class="form-horizontal" action="Login.php" method="POST" role="form">
 			<div class="form-group">
 			  <label class="control-label col-sm-3" for="user">Gebruikersnaam:</label>
 			  <div class="col-sm-5">
-				<input type="text" class="form-control" id="username" placeholder="Gebruikersnaam" autofocus>
+				<input type="text" class="form-control" id="username" name="username" placeholder="Gebruikersnaam" autofocus>
 			  </div>
 			</div>	
 
 			<div class="form-group">
 			  <label class="control-label col-sm-3" for="pwd">Wachtwoord:</label>
 			  <div class="col-sm-5">
-				<input type="password" class="form-control" id="pwd" placeholder="Wachtwoord">
+				<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Wachtwoord">
 			  </div>
 			</div>	
 
