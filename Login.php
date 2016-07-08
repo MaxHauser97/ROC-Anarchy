@@ -1,5 +1,12 @@
 <?php
 	include 'Includes.php';
+	
+	if (isset($_GET["login"])) {
+		echo "<div class='error'>Je moet eerst inloggen.</div>";
+		if ($_GET["login"] == "true") {
+			echo "<div class='error'>Nee, dit doet niks. Ga gewoon inloggen.</div>";
+		}
+	}
 
 	if ($_POST) {
 		$username = $_POST["username"];
@@ -8,11 +15,30 @@
 	
 	if ($_POST && $conn = Connect("rocanarchy")) {
 		//We have connection!
-		if ($username == "leerling" && $password == "LCTA004A") {
-			echo "<div>You are logged in as leerling!</div>";
+		/*if ($username == "leerling" && $password == "LCTA004A") {
+			//echo "<div>You are logged in as leerling!</div>";
+			session_start();
+			$_SESSION["username"] = $username;
+			//header("Location: index.php");
 		}
 		else {
-			echo "<div>Wrong credentials!</div>";
+			echo "<div class='wrong'>Verkeerde inloggegevens!</div>";
+		}*/
+		
+		if ($result = Query("users", "SELECT * FROM users WHERE name = '$username'")) {
+			while ($row = mysqli_fetch_array($result)) {
+				if ($row["password"] == hash("whirlpool", $password)) {
+					session_start();
+					$_SESSION["username"] = $username;
+					header("Location: index.php");
+				}
+				else {
+					echo "<div class='wrong'>Verkeerde inloggegevens!</div>";
+				}
+			}
+		}
+		else {
+			echo "<div class='wrong'>Verkeerde inloggegevens!</div>";
 		}
 	}
 	elseif($_POST) {
@@ -20,7 +46,7 @@
 	}
 ?>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <title>ROC Anarchy</title>
