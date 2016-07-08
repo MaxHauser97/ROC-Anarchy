@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="stylesheet" href="Dashboard.css">
+	<link rel="stylesheet" href="Dashboard.css">
+	<link rel="stylesheet" href="Dashboard.css">
 
     <title>ROCAnarchy - Dashboard</title>
 
@@ -276,7 +278,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">124</div>
-                                        <div>New Orders!</div>
+                                        <div>CRUD</div>
                                     </div>
                                 </div>
                             </div>
