@@ -93,7 +93,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<p class="text-center">
-				Een initiatief van leerlingen :)
+					Een initiatief van leerlingen :)
 				</p>
 			</div>
 		</div>
