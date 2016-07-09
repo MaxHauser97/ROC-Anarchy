@@ -1,5 +1,5 @@
 <?php
-	include 'Config.php';
+	//include 'Config.php';
 	
 	if (environment == "dev") {
 	
@@ -17,7 +17,8 @@
 	}
 	
 	function CreateDatabase ($name) {
-		if (mysqli_query("CREATE DATABASE $name")) {
+		$conn = mysqli_connect(databasehost, databaseuser, databasepass);
+		if (mysqli_query($conn, "CREATE DATABASE $name")) {
 			return "Succesfully created DATABASE $name";
 		}
 		else {
@@ -26,7 +27,8 @@
 	}
 	
 	function CreateTable ($name) {
-		if (mysqli_query("CREATE TABLE $name")) {
+		$conn = mysqli_connect(databasehost, databaseuser, databasepass, databasename);
+		if (mysqli_query($conn, "CREATE TABLE $name")) {
 			return "Succesfully created TABLE $name";
 		}
 		else {
@@ -35,7 +37,8 @@
 	}
 	
 	function InsertData ($query) {
-		if (mysqli_query($query)) {
+		$conn = mysqli_connect(databasehost, databaseuser, databasepass, databasename);
+		if (mysqli_query($conn, $query)) {
 			return "Succesfully inserted query: $query";
 		}
 		else {
