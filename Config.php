@@ -4,4 +4,5 @@
 	define("databaseuser", "root");
 	define("databasepass", "root");
 	define("databasename", "rocanarchy");
+	define("environment", "dev");
 ?>
