@@ -4,7 +4,7 @@
 	if (environment == "dev") {
 	
 		if ($conn = mysqli_connect(databasehost, databaseuser, databasepass)) {
-			echo "PREPARE, FOR SOME BLACK MAGIC!";
+			echo "PREPARE, FOR SOME BLACK MAGIC!<br>";
 			echo CreateDatabase('rocanarchy');
 			echo CreateTable('users (id int AUTO_INCREMENT PRIMARY KEY, name varchar(255), password varchar(255))');
 			echo InsertData("INSERT INTO users (name, password) VALUES ('leerling', 'b9d71fbbd8ca839533a47180a57da24f0187f2ec55dd282fb90150686336980922a502949f36bffcd54d832ff373a377acbfe9a7480493a9a83f1122d6846d2b')");
