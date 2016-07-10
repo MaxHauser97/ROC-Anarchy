@@ -24,7 +24,7 @@
 <div class="container-fluid" style="background-color: #e8e8e8">
 	<div class="container-fluid">
 		<div class="container">
-			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="registratie-edup.php"Registratiesystemen </a></p>
+			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="registratie-edu.php">Registratiesystemen </a></p>
 		</div>
 	</div>
 </div>
@@ -44,7 +44,7 @@
 			</p>
 			</div>
 			<div class="col-md-6 text-center">
-			<span class="glyphicon glyphicon-tasks" style="color: #808080; font-size: 100px; margin-top: 110px;"></span>
+			<span class="glyphicon glyphicon-list-alt" style="color: #808080; font-size: 100px; margin-top: 110px;"></span>
 			</div>
 		</div>
 	</div>
@@ -57,8 +57,8 @@
 		</div>
 
 		<div class="row">
-			<p>Bij het maken van een website is het ontwerpen van een database een hele belangrijke stap.</p>
-			<p>Het verschilt echter per project wat voor een database je nodig hebt, maar we zullen een standaard database als voorbeeld geven die je altijd kan aanpassen.</p>
+			<p>Bij het maken van een website is het ontwerpen van een database een hele belangrijke stap.<br>
+			Het verschilt echter per project wat voor een database je nodig hebt, maar we zullen een standaard database als voorbeeld geven die je altijd kan aanpassen.</p>
 			<hr>
 			<p>
 
