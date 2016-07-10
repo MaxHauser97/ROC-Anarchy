@@ -117,7 +117,7 @@
 		</div>
 
 		<div class="container-fluid">
-			<div class="container" style="background-color: #8ad9f1;">
+			<div class="container" style="background-color: #8ad9f1; border-radius: 5px; border: 1px solid #46c3e9; max-width: 940px;">
 				<h4 id="updateTitle"><?php echo $title; ?></h4>
 				<div id="updateMessage">
 					<?php echo $text; ?>
