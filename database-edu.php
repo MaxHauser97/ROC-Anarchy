@@ -19,8 +19,8 @@
 	<div class="jumbotron text-center">
 	  <h1>Databases</h1>
 	  <p>Leer hier alles over databases</p>
-	</div>			
-	
+	</div>
+
 <div class="container-fluid" style="background-color: #e8e8e8">
 	<div class="container-fluid">
 		<div class="container">
@@ -40,7 +40,7 @@
 			  <a href="#" class="list-group-item">Database ontwerpen</a>
 			  <a href="#" class="list-group-item">Connectie maken</a>
 			  <a href="#" class="list-group-item">testing fase</a>
-			</div>				
+			</div>
 			</p>
 			</div>
 			<div class="col-md-6 text-center">

@@ -44,7 +44,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="database-edu.php">Databases</a></li>
-        <li><a href="#">Loginsysteem</a></li>
+        <li><a href="login-edu.php">Loginsysteem</a></li>
         <li><a href="#">Registratiesysteem</a></li>
         <li><a href="#">CRUD</a></li>
       </ul>
