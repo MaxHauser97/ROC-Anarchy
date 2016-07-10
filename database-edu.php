@@ -43,9 +43,26 @@
 			</div>				
 			</p>
 			</div>
-			<div class="col-md-6">
-			<span class="glyphicon glyphicon-tasks text-center" style="color: #808080; font-size: 30px;"></span>
+			<div class="col-md-6 text-center">
+			<span class="glyphicon glyphicon-tasks" style="color: #808080; font-size: 100px; margin-top: 110px;"></span>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12"><h2>Database ontwerpen</h2></div>
+		</div>
+		
+		<div class="row">
+			<p>Bij het maken van een website is het ontwerpen van een database een hele belangrijke stap.</p>
+			<p>Het verschilt echter per project wat voor een database je nodig hebt, maar we zullen een standaard database als voorbeeld geven die je altijd kan aanpassen.</p>
+			<hr>
+			<p>
+			
+			</p>
 		</div>
 	</div>
 </div>
