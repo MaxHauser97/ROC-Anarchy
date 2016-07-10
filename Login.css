@@ -60,6 +60,21 @@ p {
 	font-size: 30px;
 }
 
+.wrong,
+.error{
+	position: absolute;
+	left: 45%;
+	right: 0;
+	top: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	color: #EF5350;
+	margin: 0 auto;
+	margin: 0px;
+	padding: 0px;
+}
+
+
 /*MOBILES*/
 @media (max-width: 425px) {/*Max width for mobiles are 425PX, afther that, they become tablets.*/
 	.container-fluid:first-child {
