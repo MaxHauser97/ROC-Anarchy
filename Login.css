@@ -74,7 +74,6 @@ p {
 	padding: 0px;
 }
 
-
 /*MOBILES*/
 @media (max-width: 425px) {/*Max width for mobiles are 425PX, afther that, they become tablets.*/
 	.container-fluid:first-child {
