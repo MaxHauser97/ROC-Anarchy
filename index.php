@@ -78,7 +78,7 @@
 			</div>
 			<div class="col-sm-3 text-center">
 			<h3 style="background-color: #FFC107; color: #fff; padding: 5px 0px;">Registratiesystemen</h3>
-			<p class="meer-info">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
+			<p class="meer-info"><a href="registratie-edu.php"> Klik hier voor meer info</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
 			</div>
 			<div class="col-sm-3 text-center">
 			<h3 style="background-color: #E53935; color: #fff; padding: 5px 0px;">CRUD</h3>
