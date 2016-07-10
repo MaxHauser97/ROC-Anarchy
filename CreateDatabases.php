@@ -19,17 +19,17 @@
 	function CreateDatabase ($name) {
 		$conn = mysqli_connect(databasehost, databaseuser, databasepass);
 		if (mysqli_query($conn, "CREATE DATABASE $name")) {
-			return "Succesfully created DATABASE $name";
+			return "Succesfully created DATABASE $name <br>";
 		}
 		else {
-			return "Failed creating DATABASE $name";
+			return "Failed creating DATABASE $name <br>";
 		}
 	}
 	
 	function CreateTable ($name) {
 		$conn = mysqli_connect(databasehost, databaseuser, databasepass, databasename);
-		if (mysqli_query($conn, "CREATE TABLE $name")) {
-			return "Succesfully created TABLE $name";
+		if (mysqli_query($conn, "CREATE TABLE $name <br>")) {
+			return "Succesfully created TABLE $name <br>";
 		}
 		else {
 			return "Failed creating TABLE $name";
@@ -39,10 +39,10 @@
 	function InsertData ($query) {
 		$conn = mysqli_connect(databasehost, databaseuser, databasepass, databasename);
 		if (mysqli_query($conn, $query)) {
-			return "Succesfully inserted query: $query";
+			return "Succesfully inserted query: $query <br>";
 		}
 		else {
-			return "Failed inserting query: $query";
+			return "Failed inserting query: $query <br>";
 		}
 	}
 	
