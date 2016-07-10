@@ -39,12 +39,13 @@
 			<div class="list-group">
 			  <a href="#" class="list-group-item">Database ontwerpen</a>
 			  <a href="#" class="list-group-item">Connectie maken</a>
+			  <a href="#" class="list-group-item">Verschillende databases</a>
 			  <a href="#" class="list-group-item">testing fase</a>
 			</div>
 			</p>
 			</div>
 			<div class="col-md-6 text-center">
-			<span class="glyphicon glyphicon-tasks" style="color: #808080; font-size: 100px; margin-top: 110px;"></span>
+			<span class="glyphicon glyphicon-tasks" style="color: #808080; font-size: 100px; margin-top: 150px;"></span>
 			</div>
 		</div>
 	</div>
@@ -57,8 +58,8 @@
 		</div>
 		
 		<div class="row">
-			<p>Bij het maken van een website is het ontwerpen van een database een hele belangrijke stap.</p>
-			<p>Het verschilt echter per project wat voor een database je nodig hebt, maar we zullen een standaard database als voorbeeld geven die je altijd kan aanpassen.</p>
+			<p>Bij het maken van een website is het ontwerpen van een database een hele belangrijke stap.<br>
+			Het verschilt echter per project wat voor een database je nodig hebt, maar we zullen een standaard database als voorbeeld geven die je altijd kan aanpassen.</p>
 			<hr>
 			<p>
 			

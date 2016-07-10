@@ -46,7 +46,7 @@
         <li><a href="database-edu.php">Databases</a></li>
         <li><a href="login-edu.php">Loginsysteem</a></li>
         <li><a href="#">Registratiesysteem</a></li>
-        <li><a href="#">CRUD</a></li>
+        <li><a href="crud-edu.php">CRUD</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
@@ -82,7 +82,7 @@
 			</div>
 			<div class="col-sm-3 text-center">
 			<h3 style="background-color: #E53935; color: #fff; padding: 5px 0px;">CRUD</h3>
-			<p class="meer-info">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
+			<p class="meer-info"><a href="crud-edu.php">Klik hier voor meer info</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
 			</div>
 	</div>
 </div>
