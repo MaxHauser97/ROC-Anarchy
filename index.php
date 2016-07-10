@@ -67,6 +67,12 @@
 
 <div class="container-fluid">
 	<div class="container">
+		Hier komen updates
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="container">
 			<div class="col-sm-3 text-center">
 			<h3 style="background-color: #3F51B5; color: #fff; padding: 5px 0px;">Databases</h3>
 			<p class="meer-info"><a href="database-edu.php">Klik hier voor meer info</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
