@@ -81,7 +81,6 @@
 		</style>
 	</head>
 	<body>
-
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 			<div class="navbar-header">
@@ -131,23 +130,22 @@
 
 		<div class="container-fluid">
 			<div class="container">
-					<div class="col-sm-3 text-center">
+				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #3F51B5; color: #fff; padding: 5px 0px;">Databases</h3>
 					<p class="meer-info"><a href="database-edu.php">Klik hier voor meer info</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
-
-					</div>
-					<div class="col-sm-3 text-center">
+				</div>
+				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #009688; color: #fff; padding: 5px 0px;">Loginsystemen</h3>
 					<p class="meer-info"> <a href="login-edu.php"> Klik hier voor meer info</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
-					</div>
-					<div class="col-sm-3 text-center">
+				</div>
+				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #FFC107; color: #fff; padding: 5px 0px;">Registratiesystemen</h3>
 					<p class="meer-info">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
-					</div>
-					<div class="col-sm-3 text-center">
+				</div>
+				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #E53935; color: #fff; padding: 5px 0px;">CRUD</h3>
 					<p class="meer-info">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
-					</div>
+				</div>
 			</div>
 		</div>
 
