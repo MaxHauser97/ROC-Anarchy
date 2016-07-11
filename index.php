@@ -64,6 +64,11 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<style>
 			body{background-color: #f5f5f5;}
 			.roc{color: #EF5350;}
@@ -85,6 +90,17 @@
 				border-bottom-left-radius: 5px; 
 				border-bottom-right-radius: 5px;
 				font-weight: bold;
+			}
+			.zoeken {
+				background-color: #808080;
+				border: none;
+				height: 49px;
+				width: 300px;
+				padding: 20px;
+				color: #d1d1d1;
+				font-size: larger;
+				box-shadow: 0px 0px 10px #707070 inset;
+				display: none;
 			}
 		</style>
 	</head>
@@ -199,7 +215,7 @@
 					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Gebruikers level</a>
 					</h4>
 				  </div>
-				  <div id="collapse1" class="panel-collapse collapse in">
+				  <div id="collapse1" class="panel-collapse collapse">
 					<div class="panel-body">Vaak heb je meerdere bevoegdheids levels in een systeem. Dit kan dus nog wel eens van pas komen.<br><a href="#" style="font-weight: bold;">Lees meer</a></div>
 				  </div>
 				</div>
@@ -224,7 +240,42 @@
 				  </div>
 				</div>
 			  </div>
-			</div>	
+			</div>
+
+			<div class="col-md-6">
+			  <div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Zoek functie</a>
+					</h4>
+				  </div>
+				  <div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body">Om een site overzichtelijk te houden is een zoekbalk een goed systeem.<br><a href="#" style="font-weight: bold;">Lees meer</a></div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">limiet vaststellen</a>
+					</h4>
+				  </div>
+				  <div id="collapse5" class="panel-collapse collapse">
+					<div class="panel-body">Als je database veel records bevat wil je een limiet zetten op de hoeveelheid dat je kan terug vragen. Anders wordt je site langzaam.<br><a href="#" style="font-weight: bold;">Lees meer</a></div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Cookies</a>
+					</h4>
+				  </div>
+				  <div id="collapse6" class="panel-collapse collapse">
+					<div class="panel-body">Cookie's zijn instaat om te achterhalen wie er op het moment op de site zit.</div>
+				  </div>
+				</div>
+			  </div>
+			</div>			
 			</div>
 		</div>
 
@@ -258,6 +309,11 @@
 					}
 				});
 			}
+			
+			$(document).ready(function(){
+
+				});
+			});			
 		</script>
 
 	</body>
