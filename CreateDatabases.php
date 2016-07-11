@@ -30,11 +30,11 @@
 	
 	function CreateTable ($name) {
 		$conn = mysqli_connect(databasehost, databaseuser, databasepass, databasename);
-		if (mysqli_query($conn, "CREATE TABLE $name <br>")) {
+		if (mysqli_query($conn, "CREATE TABLE $name")) {
 			return "Succesfully created TABLE $name <br>";
 		}
 		else {
-			return "Failed creating TABLE $name";
+			return "Failed creating TABLE $name <br>";
 		}
 	}
 	
