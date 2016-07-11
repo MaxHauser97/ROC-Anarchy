@@ -29,8 +29,7 @@
 	if (isset($_REQUEST["getupdate"])) {
 		if ($conn = Connect()) {
 			if (preg_replace('/[^A-Za-z0-9\-]/', '', $_GET['getupdate']) != $_GET['getupdate']) {
-				$data["status"] = "error";
-				echo json_encode($data);
+				echo json_encode(['success' => false]); //TODO: Make an Ajax.php in which we will do all Ajax calls containing just PHP functions. So things don't mess up.
 				return;
 			}
 			if ($result = Query("updates", "SELECT * FROM updates WHERE id = '".$_GET['getupdate']."'")) {
@@ -39,20 +38,17 @@
 					return;
 				}
 				else {
-					$data["status"] = "error";
-					echo json_encode($data);
+					echo json_encode(['success' => false]);
 					return;
 				}
 			}
 			else {
-				$data["status"] = "error";
-				echo json_encode($data);
+				echo json_encode(['success' => false]);
 				return;
 			}
 		}
 		else {
-			$data["status"] = "error";
-			echo json_encode($data);
+			echo json_encode(['success' => false]);
 			return;
 		}
 	}
@@ -64,6 +60,7 @@
 	<title>ROCAnarchy - Dashboard</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="http://st27.nl/School/siteIcon.png">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
