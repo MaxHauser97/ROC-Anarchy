@@ -1,6 +1,4 @@
 <?php
-	include 'CreateDatabases.php';
-
 	function Connect () {
 		if ($conn = mysqli_connect(databasehost, databaseuser, databasepass)) {
 			if (mysqli_select_db($conn, databasename)) {
@@ -28,6 +26,7 @@
 				return $result;
 			}
 			else {
+				include 'CreateDatabases.php';
 				if (JustDoIt()) {
 					//Table created!						
 					if ($result = mysqli_query($conn, $query)) {
