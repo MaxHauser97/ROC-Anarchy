@@ -11,6 +11,15 @@
 	.jumbotron{background-color: #FFC107; color: #fff; margin-bottom: 0px;}
 	a{color: #808080;}
 	.container-fluid:first-child p{margin: 10px;}
+	@media screen and (max-width: 768px) {.glyphicon.glyphicon-list-alt{margin-top: 20px !important;}}	
+  .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }		
   </style>
 </head>
 
@@ -21,7 +30,7 @@
 	  <p>Leer hier alles over registratiesystemen</p>
 	</div>
 
-<div class="container-fluid" style="background-color: #e8e8e8">
+<div class="container-fluid"  data-spy="affix" data-offset-top="197" style="background-color: #e8e8e8; z-index: 9999;">
 	<div class="container-fluid">
 		<div class="container">
 			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="registratie-edu.php">Registratiesystemen </a></p>

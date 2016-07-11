@@ -79,6 +79,16 @@
 			.col-sm-3:nth-child(2) p.meer-info{border-color: #009688;}
 			.col-sm-3:nth-child(3) p.meer-info{border-color: #FFC107;}
 			.col-sm-3:nth-child(4) p.meer-info{border-color: #E53935;}
+			body .jumbotron:nth-child(2){margin-bottom: 0px;}
+			.container-fluid:nth-child(5) .col-md-4 > p{
+				background-color: #fff;
+				border: 1px solid;
+				padding: 120px 0px 5px 15px;
+				text-align: left; 
+				border-bottom-left-radius: 5px; 
+				border-bottom-right-radius: 5px;
+				font-weight: bold;
+			}
 		</style>
 	</head>
 	<body>
@@ -93,13 +103,20 @@
 			  <a class="navbar-brand" href="#" class="roc"><span class="glyphicon glyphicon-fire"></span><span class="roc"> ROCAnarchy</span></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
-			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="database-edu.php">Databases</a></li>
-				<li><a href="login-edu.php">Loginsysteem</a></li>
-				<li><a href="registratie-edu.php">Registratiesysteem</a></li>
-				<li><a href="crud-edu.php">CRUD</a></li>
-			  </ul>
+				<ul class="nav navbar-nav">
+				  <li class="active"><a href="#">Home</a></li>
+				  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Onderwerpen <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					  <li><a href="database-edu.php">Databases</a></li>
+					  <li><a href="login-edu.php">Loginsystemen</a></li>
+					  <li><a href="registratie-edu.php">Registratiesystemen</a></li>
+					  <li><a href="crud-edu.php">CRUD</a></li>
+					  <li><a href="beveiliging-edu.php">Beveiliging</a></li>
+					  <li><a href="gastenboek-edu.php">Gastenboek</a></li>
+					  <li><a href="webshop-edu.php">Webshop</a></li>
+					</ul>
+				  </li>
+				</ul>
 			  <ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
 				<li><a href="Logout.php"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
@@ -110,7 +127,7 @@
 
 		<div class="container-fluid">
 			<div class="container">
-			  <div class="jumbotron text-center">
+			  <div class="jumbotron text-center" style="background-color: #fff; border: 1px solid #e7e7e7;">
 				<h1><span class="glyphicon glyphicon-fire" style="color: #EF5350;"></span></h1>
 				<p><i>Dan leren we 't zelf wel...</i></p>
 			  </div>
@@ -118,7 +135,8 @@
 		</div>
 
 		<div class="container-fluid">
-			<div class="container" style="background-color: #8ad9f1; border-radius: 5px; border: 1px solid #46c3e9; max-width: 940px;">
+			<div class="container">
+			<div class="jumbotron" style="background-color: #8ad9f1; border-radius: 5px; border: 1px solid #46c3e9; margin-bottom: 0px;">
 				<h4 id="updateTitle"><?php echo $title; ?></h4>
 				<div id="updateMessage">
 					<?php echo $text; ?>
@@ -126,6 +144,7 @@
 				<span style="float:right;">&nbsp;<span id="updateCurrent">1</span>/<?php echo $totalposts; ?></span>
 				<span class="glyphicon glyphicon-chevron-right" onclick="next();" style="float:right; cursor:pointer;"></span>		
 				<span class="glyphicon glyphicon-chevron-left" onclick="previous();" style="float:right; cursor:pointer;"></span>
+			</div>
 			</div>
 		</div>
 
@@ -147,6 +166,68 @@
 					<h3 style="background-color: #E53935; color: #fff; padding: 5px 0px;">CRUD</h3>
 					<p class="meer-info"><a href="crud-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="container">
+				<div class="col-md-4">
+					<h3 style="background-color: #EF6C00; color: #fff; padding: 5px 0px;"" class="text-center">Beveiliging</h3>
+					<p style="border-color: #EF6C00;">
+					<a href="beveiliging-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h3 style="background-color: #00838F; color: #fff; padding: 5px 0px;"" class="text-center">Gastenboek</h3>
+					<p style="border-color: #00838F;">
+					<a href="gastenboek-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					</p>
+			</div>
+				<div class="col-md-4">
+					<h3 style="background-color: #673AB7; color: #fff; padding: 5px 0px;"" class="text-center">webshop</h3>
+					<p style="border-color: #673AB7;">
+					<a href="webshop-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					</p>
+			</div>			
+			</div>
+		</div>
+		
+		<div class="jumbotron">
+			<div class="container" style="max-width: 1080px;">
+			<div class="col-md-6">
+			  <div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Gebruikers level</a>
+					</h4>
+				  </div>
+				  <div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">Vaak heb je meerdere bevoegdheids levels in een systeem. Dit kan dus nog wel eens van pas komen.<br><a href="#" style="font-weight: bold;">Lees meer</a></div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">databases koppelen</a>
+					</h4>
+				  </div>
+				  <div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body">Een bedrijf heeft meestel meerdere afdelingen of product categorie&#235;n. Deze moeten gekoppeld worden.<br><a href="#" style="font-weight: bold;">Lees meer</a></div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Sessions</a>
+					</h4>
+				  </div>
+				  <div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body">Uitleg over onderwerp 3.</div>
+				  </div>
+				</div>
+			  </div>
+			</div>	
 			</div>
 		</div>
 

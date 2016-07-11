@@ -11,6 +11,15 @@
 	.jumbotron{background-color:#E53935; color: #fff; margin-bottom: 0px;}
 	a{color: #808080;}
 	.container-fluid:first-child p{margin: 10px;}
+	@media screen and (max-width: 768px) {.glyphicon.glyphicon-transfer{margin-top: 20px !important;}}
+  .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }	
   </style>
 </head>
 
@@ -21,7 +30,7 @@
 	  <p>Create, Read, Update, Delete</p>
 	</div>
 
-<div class="container-fluid" style="background-color: #e8e8e8">
+<div class="container-fluid"  data-spy="affix" data-offset-top="197" style="background-color: #e8e8e8; z-index: 9999;">
 	<div class="container-fluid">
 		<div class="container">
 			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="crud-edu.php">CRUD</a></p>
@@ -45,7 +54,7 @@
 			</p>
 			</div>
 			<div class="col-md-6 text-center">
-			<span class="	glyphicon glyphicon-transfer" style="color: #808080; font-size: 100px; margin-top: 140px;"></span>
+			<span class="glyphicon glyphicon-transfer" style="color: #808080; font-size: 100px; margin-top: 140px;"></span>
 			</div>
 		</div>
 	</div>
@@ -60,6 +69,39 @@
 		<div class="row">
 		<p>
 			We beginnen bij create record. Met deze functie maak je de informatie aan. Een voorbeeld hiervan is bij het registreren.
+			<pre>CREATE (database, tabel, record) (naam) ;</pre>
+			<hr>
+		</p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12"><h2>Read record</h2></div>
+		</div>
+		
+		<div class="row">
+		<p>
+			De read record zorgt ervoor dat de gegevens die in de database staan terug worden gestuurd naar de pagina.
+			<pre>Ik kan geen php dus ik weet niet wat hier moet...</pre>
+			<hr>			
+		</p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12"><h2>Update record</h2></div>
+		</div>
+		
+		<div class="row">
+		<p>
+			De Update record zorgt ervoor dat de gegevens vernieuwd worden in de database.
+			<pre>UPDATE (tabelnaam) SET (nieuwe input) WHERE (verouderede input) ;</pre>
 			<hr>
 		</p>
 		</div>
