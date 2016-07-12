@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("Location: Login.php?login=false");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

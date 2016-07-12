@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	include 'Includes.php';
-
 	if (!isset($_SESSION["username"])) {
 		header("Location: Login.php?login=false");
 	}
+	
+	include 'Includes.php';
 	
 	$title = "Failed to load update...";
 	$text = "Faied to load update...";

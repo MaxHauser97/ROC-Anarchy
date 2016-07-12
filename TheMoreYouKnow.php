@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("Location: Login.php?login=false");
+	}
+	
 	$title = "The more you know";
 	$titleDing = "Index.";
 	
