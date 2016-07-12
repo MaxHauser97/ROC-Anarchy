@@ -1,24 +1,33 @@
 <?php
-	$title = "Niet gevonden";
-	$titleDing = "404 uitleg niet gevonden.";
+	$title = "The more you know";
+	$titleDing = "Index.";
 	
-	$text = "Nee serieus, we hebben het niet. Ga maar weer terug naar het dasboard.";
+	$text = "<h2>Index</h2>
+		<a href='TheMoreYouKnow.php?subject=cookies'>Cookies</a><br>
+		<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
+		<a href='TheMoreYouKnow.php?subject=DataTypes'>DataTypes</a><br>
+	";
 	
 	if (isset($_GET["subject"])) {
 		if ($_GET["subject"] == "cookies") {
 			$title = "Cookies";
 			$titleDing = "Wat zijn cookies?";
-			$text = "<h1>Cookies</h1>Cookies zijn <a href='TheMoreYouKnow.php?subject=variabelen'>variabelen</a> die worden opgeslagen in de browser. Zo kunnen variabelen makkelijk overgedragen worden van webpagina naar webpagina. Zo kan bijvoorbeeld in een cookie je gebruikersnaam worden opgeslagen en kan een site je naam weergeven zonder dat je bent ingelogd.<br><h2>Levensduur</h2> Cookies hebben een bepaalde levensduur. Deze kan een programmeur instellen. Zo kan een cookie voor een paar uur opgeslagen blijven of voor een paar maanden.";
+			$text = "<h2>Cookies</h2>Cookies zijn <a href='TheMoreYouKnow.php?subject=variabelen'>variabelen</a> die worden opgeslagen in de browser. Zo kunnen variabelen makkelijk overgedragen worden van webpagina naar webpagina. Zo kan bijvoorbeeld in een cookie je gebruikersnaam worden opgeslagen en kan een site je naam weergeven zonder dat je bent ingelogd.<br><h2>Levensduur</h2> Cookies hebben een bepaalde levensduur. Deze kan een programmeur instellen. Zo kan een cookie voor een paar uur opgeslagen blijven of voor een paar maanden.";
 		}
 		else if ($_GET["subject"] == "variabelen") {
 			$title = "Variabelen";
 			$titleDing = "Wat zijn variabelen?";
-			$text = "<h1>Variabelen</h1>Variabelen zijn alles wat je kan invullen. Dingen zoals woorden, zinnen en cijfers. Een goed voorbeeld van een variabel is: \$ditiseenvariabel = '100';<br>De naam van de variabel is dus ditiseenvariabel en de waarde van die variabel is 100. <br><h2>Andere programmeer talen</h2>Let op! In PHP en Javascript wordt automatisch bepaald wat voor <a href='TheMoreYouKnow.php?subject=DataTypes'>data type</a> een variabel is aan de hand van wat je erin stopt. Zo wordt een getal automatisch een Integer en true of false een Boolean. In programmeertalen zoals C#, C++ en Java moet je handmatig instellen wat voor data type een variabel is. Bijvoorbeeld: boolean variabelnaam = false;";
+			$text = "<h2>Variabelen</h2>Variabelen zijn alles wat je kan invullen. Dingen zoals woorden, zinnen en cijfers. Een goed voorbeeld van een variabel is: \$ditiseenvariabel = '100';<br>De naam van de variabel is dus ditiseenvariabel en de waarde van die variabel is 100. <br><h2>Andere programmeer talen</h2>Let op! In PHP en Javascript wordt automatisch bepaald wat voor <a href='TheMoreYouKnow.php?subject=DataTypes'>data type</a> een variabel is aan de hand van wat je erin stopt. Zo wordt een getal automatisch een Integer en true of false een Boolean. In programmeertalen zoals C#, C++ en Java moet je handmatig instellen wat voor data type een variabel is. Bijvoorbeeld: boolean variabelnaam = false;";
 		}
 		else if ($_GET["subject"] == "DataTypes") {
 			$title = "Data types";
 			$titleDing = "Wat zijn data types?";
-			$text = "<h1>Data types</h1>Dit leg ik later uit.";
+			$text = "<h2>Data types</h2>Dit leg ik later uit.";
+		}
+		else {
+			$title = "Niet gevonden";
+			$titleDing = "404 uitleg niet gevonden.";
+			$text = "<h2>404</h2>Nee serieus, we hebben het niet. Ga maar weer terug naar het dasboard.";
 		}
 	}
 ?>
