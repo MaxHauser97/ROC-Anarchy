@@ -127,6 +127,7 @@
 					  <li><a href="beveiliging-edu.php">Beveiliging</a></li>
 					  <li><a href="gastenboek-edu.php">Gastenboek</a></li>
 					  <li><a href="webshop-edu.php">Webshop</a></li>
+					  <li><a href="TheMoreYouKnow.php">The more you know</a></li>
 					</ul>
 				  </li>
 				</ul>
