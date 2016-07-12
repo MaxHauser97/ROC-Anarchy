@@ -271,7 +271,7 @@
 					</h4>
 				  </div>
 				  <div id="collapse6" class="panel-collapse collapse">
-					<div class="panel-body">Cookie's zijn instaat om te achterhalen wie er op het moment op de site zit.</div>
+					<div class="panel-body">Cookie's zijn variabelen die opgeslagen worden in je browser. Zo kunnen de variabelen makkelijk overgedragen worden van webpagina naar webpagina.</div>
 				  </div>
 				</div>
 			  </div>
@@ -311,7 +311,7 @@
 			}
 			
 			$(document).ready(function(){
-
+				
 			});			
 		</script>
 
