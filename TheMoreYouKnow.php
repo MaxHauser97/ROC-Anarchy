@@ -4,7 +4,7 @@
 	
 	$text = "Nee serieus, we hebben het niet. Ga maar weer terug naar het dasboard.";
 	
-	if (isset($_GET["subject"]))
+	if (isset($_GET["subject"])) {
 		if ($_GET["subject"] == "cookies") {
 			$title = "Cookies";
 			$titleDing = "Wat zijn cookies?";
