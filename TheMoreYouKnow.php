@@ -22,7 +22,7 @@
 		else if ($_GET["subject"] == "DataTypes") {
 			$title = "Data types";
 			$titleDing = "Wat zijn data types?";
-			$text = "<h2>Data types</h2>Dit leg ik later uit.";
+			$text = "<h2>Data types</h2>Voor elke <a href='TheMoreYouKnow.php?subject=variabelen'>variabel</a> kan je een data type instellen. De data type bepaald wat voor waardes er in je variabel kunnen. Zo kunnen Integers alleen maar hele getallen vasthouden zoals 0, 1, 2, 3 en niet getallen zoals 0.01 of 105.45.<br><h2>Verschillende data types</h2>Hieronder volgt een lijst met de basis verschillende data types.<br><table border='1'><th>Data type</th><th>Waardes</th><tr><td>Integer</td><td>Hele getallen</td></tr><tr><td>Boolean</td><td>True of False</td></tr><tr><td>Float</td><td>Getallen met getallen achter de komma</td></tr></table>";
 		}
 		else {
 			$title = "Niet gevonden";
