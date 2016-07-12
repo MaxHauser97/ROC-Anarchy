@@ -271,7 +271,7 @@
 					</h4>
 				  </div>
 				  <div id="collapse6" class="panel-collapse collapse">
-					<div class="panel-body">Cookie's zijn variabelen die opgeslagen worden in je browser. Zo kunnen de variabelen makkelijk overgedragen worden van webpagina naar webpagina.</div>
+					<div class="panel-body"><a href="TheMoreYouKnow.php?subject=cookies">Cookie's</a> zijn <a href="TheMoreYouKnow.php?subject=cookies">variabelen</a> die opgeslagen worden in je browser. Zo kunnen de variabelen makkelijk overgedragen worden van webpagina naar webpagina.</div>
 				  </div>
 				</div>
 			  </div>
