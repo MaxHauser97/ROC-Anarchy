@@ -13,16 +13,28 @@
 			$title = "Cookies";
 			$titleDing = "Wat zijn cookies?";
 			$text = "<h2>Cookies</h2>Cookies zijn <a href='TheMoreYouKnow.php?subject=variabelen'>variabelen</a> die worden opgeslagen in de browser. Zo kunnen variabelen makkelijk overgedragen worden van webpagina naar webpagina. Zo kan bijvoorbeeld in een cookie je gebruikersnaam worden opgeslagen en kan een site je naam weergeven zonder dat je bent ingelogd.<br><h2>Levensduur</h2> Cookies hebben een bepaalde levensduur. Deze kan een programmeur instellen. Zo kan een cookie voor een paar uur opgeslagen blijven of voor een paar maanden.";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
+			";
 		}
 		else if ($_GET["subject"] == "variabelen") {
 			$title = "Variabelen";
 			$titleDing = "Wat zijn variabelen?";
 			$text = "<h2>Variabelen</h2>Variabelen zijn alles wat je kan invullen. Dingen zoals woorden, zinnen en cijfers. Een goed voorbeeld van een variabel is: \$ditiseenvariabel = '100';<br>De naam van de variabel is dus ditiseenvariabel en de waarde van die variabel is 100. <br><h2>Andere programmeer talen</h2>Let op! In PHP en Javascript wordt automatisch bepaald wat voor <a href='TheMoreYouKnow.php?subject=DataTypes'>data type</a> een variabel is aan de hand van wat je erin stopt. Zo wordt een getal automatisch een Integer en true of false een Boolean. In programmeertalen zoals C#, C++ en Java moet je handmatig instellen wat voor data type een variabel is. Bijvoorbeeld: boolean variabelnaam = false;";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='TheMoreYouKnow.php?subject=DataTypes'>DataTypes</a><br>
+			";
 		}
 		else if ($_GET["subject"] == "DataTypes") {
 			$title = "Data types";
 			$titleDing = "Wat zijn data types?";
 			$text = "<h2>Data types</h2>Voor elke <a href='TheMoreYouKnow.php?subject=variabelen'>variabel</a> kan je een data type instellen. De data type bepaald wat voor waardes er in je variabel kunnen. Zo kunnen Integers alleen maar hele getallen vasthouden zoals 0, 1, 2, 3 en niet getallen zoals 0.01 of 105.45.<br><h2>Verschillende data types</h2>Hieronder volgt een lijst met de basis verschillende data types.<br><table border='1'><th>Data type</th><th>Waardes</th><tr><td>Integer</td><td>Hele getallen</td></tr><tr><td>Boolean</td><td>True of False</td></tr><tr><td>Float</td><td>Getallen met getallen achter de komma</td></tr></table>";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
+			";
 		}
 		else {
 			$title = "Niet gevonden";
