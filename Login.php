@@ -4,7 +4,7 @@
 	if (isset($_GET["login"])) {
 		echo "<div class='error'>Je moet eerst inloggen.</div>";
 		if ($_GET["login"] == "true") {
-			echo "<div class='error'>Nee, dit doet niks. Ga gewoon inloggen.</div>";
+			echo "<div class='error'><br>Nee, dit doet niks. Ga gewoon inloggen.</div>";
 		}
 	}
 
