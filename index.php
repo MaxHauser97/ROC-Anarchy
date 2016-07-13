@@ -1,59 +1,3 @@
-<?php
-	session_start();
-	include 'Includes.php';
-
-	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
-	}
-	
-	$title = "Failed to load update...";
-	$text = "Faied to load update...";
-	$totalposts = 1;
-	
-	if ($conn = Connect()) {
-		if ($result = Query("updates", "SELECT * FROM updates WHERE id = '1'")) {
-			while ($row = mysqli_fetch_array($result)) {
-				$title = $row["title"];
-				$text = $row["text"];
-			}
-		}
-		if ($result = Query("updates", "SELECT COUNT(*) FROM updates")) {
-			if ($result) {
-				while ($row = mysqli_fetch_array($result)) {
-					$totalposts = $row[0];
-				}
-			}
-		}
-	}
-	
-	if (isset($_REQUEST["getupdate"])) {
-		if ($conn = Connect()) {
-			if (preg_replace('/[^A-Za-z0-9\-]/', '', $_GET['getupdate']) != $_GET['getupdate']) {
-				echo json_encode(['success' => false]); //TODO: Make an Ajax.php in which we will do all Ajax calls containing just PHP functions. So things don't mess up.
-				return;
-			}
-			if ($result = Query("updates", "SELECT * FROM updates WHERE id = '".$_GET['getupdate']."'")) {
-				if ($result) {
-					echo json_encode(mysqli_fetch_array($result));
-					return;
-				}
-				else {
-					echo json_encode(['success' => false]);
-					return;
-				}
-			}
-			else {
-				echo json_encode(['success' => false]);
-				return;
-			}
-		}
-		else {
-			echo json_encode(['success' => false]);
-			return;
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
@@ -72,15 +16,12 @@
 		<style>
 			body{background-color: #f5f5f5;}
 			.roc{color: #EF5350;}
-			a{color: #333;}
+			.container-fluid:nth-child(4) .col-sm-3.text-center a {bottom: 0; color: #333; left: 0; padding: 60px 59px 0 10px; position: absolute; transition: all 500ms ease 0s;}
 			a:hover{text-decoration: none;}
 			.glyphicon.glyphicon-fire{color: #808080;}
 			h3{border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 0px;}
 			.meer-info{background-color: #fff; border: 1px solid; padding: 75px 0px 5px 15px; text-align: left; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-weight: bold;}
-			.col-sm-3:nth-child(1) p.meer-info{border-color: #3F51B5;}
-			.col-sm-3:nth-child(2) p.meer-info{border-color: #009688;}
-			.col-sm-3:nth-child(3) p.meer-info{border-color: #FFC107;}
-			.col-sm-3:nth-child(4) p.meer-info{border-color: #E53935;}
+			.container-fluid:nth-child(4) .col-sm-3 p.meer-info {border-color: #ffc107; position: relative;}
 			body .jumbotron:nth-child(2){margin-bottom: 0px;}
 			.container-fluid:nth-child(5) .col-md-4 > p{
 				background-color: #fff;
@@ -90,6 +31,22 @@
 				border-bottom-left-radius: 5px; 
 				border-bottom-right-radius: 5px;
 				font-weight: bold;
+			}
+			.container-fluid:nth-child(4) .col-sm-3.text-center a:hover {
+			background-color: #dedede;
+			border-radius: 3px;
+			color: #337ab7;
+			padding-top: 60px;
+			}
+			.container-fluid:nth-child(5) .col-md-4 a {
+			bottom: 0;
+			color: #333;
+			left: 0;
+			padding: 142px 110px 0 10px;
+			position: absolute;
+			}
+			.container-fluid:nth-child(5) .col-md-4  p{
+			position: relative;
 			}
 			.zoeken {
 				background-color: #808080;
@@ -127,6 +84,7 @@
 					  <li><a href="beveiliging-edu.php">Beveiliging</a></li>
 					  <li><a href="gastenboek-edu.php">Gastenboek</a></li>
 					  <li><a href="webshop-edu.php">Webshop</a></li>
+					  <li><a href="TheMoreYouKnow.php">The more you know</a></li>
 					</ul>
 				  </li>
 				</ul>
@@ -241,7 +199,6 @@
 				</div>
 			  </div>
 			</div>
-
 			<div class="col-md-6">
 			  <div class="panel-group" id="accordion">
 				<div class="panel panel-default">
@@ -271,14 +228,13 @@
 					</h4>
 				  </div>
 				  <div id="collapse6" class="panel-collapse collapse">
-					<div class="panel-body">Cookie's zijn instaat om te achterhalen wie er op het moment op de site zit.</div>
+					<div class="panel-body"><a href="TheMoreYouKnow.php?subject=cookies">Cookie's</a> zijn <a href="TheMoreYouKnow.php?subject=cookies">variabelen</a> die opgeslagen worden in je browser. Zo kunnen de variabelen makkelijk overgedragen worden van webpagina naar webpagina.</div>
 				  </div>
 				</div>
 			  </div>
 			</div>			
 			</div>
 		</div>
-
 		<script>
 			var current = 1;
 			
@@ -311,10 +267,8 @@
 			}
 			
 			$(document).ready(function(){
-
-				});
+				
 			});			
 		</script>
-
 	</body>
 </html>
