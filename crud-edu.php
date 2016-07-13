@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("Location: Login.php?login=false");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -85,8 +92,10 @@
 		
 		<div class="row">
 		<p>
-			De read record zorgt ervoor dat de gegevens die in de database staan terug worden gestuurd naar de pagina.
-			<pre>Ik kan geen php dus ik weet niet wat hier moet...</pre>
+			De read record zorgt ervoor dat de gegevens die in de database staan terug worden gestuurd naar de pagina.<br><br>
+			Voorbeeld van een table:
+			<pre><table border="1" style="float:left;"><th>id</th><th>name</th><th>lastname</th><tr><td>1</td><td>Jan</td><td>Willem</td></tr><tr><td>2</td><td>Gerard</td><td>Yolo</td></tr></table><--Columname<br><--Values</pre>
+			<pre>$result = mysqli_query($conn, "SELECT * FROM table"); //Selects all data from the requested table<br><br>while($row = mysqli_fetch_array($result)) {<br> echo $row["columnname"]; <br>}</pre>
 			<hr>			
 		</p>
 		</div>

@@ -1,3 +1,58 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("Location: Login.php?login=false");
+	}
+	
+	include 'Includes.php';
+	
+	$title = "Failed to load update...";
+	$text = "Faied to load update...";
+	$totalposts = 1;
+	
+	if ($conn = Connect()) {
+		if ($result = Query("updates", "SELECT * FROM updates WHERE id = '1'")) {
+			while ($row = mysqli_fetch_array($result)) {
+				$title = $row["title"];
+				$text = $row["text"];
+			}
+		}
+		if ($result = Query("updates", "SELECT COUNT(*) FROM updates")) {
+			if ($result) {
+				while ($row = mysqli_fetch_array($result)) {
+					$totalposts = $row[0];
+				}
+			}
+		}
+	}
+	
+	if (isset($_REQUEST["getupdate"])) {
+		if ($conn = Connect()) {
+			if (preg_replace('/[^A-Za-z0-9\-]/', '', $_GET['getupdate']) != $_GET['getupdate']) {
+				echo json_encode(['success' => false]); //TODO: Make an Ajax.php in which we will do all Ajax calls containing just PHP functions. So things don't mess up.
+				return;
+			}
+			if ($result = Query("updates", "SELECT * FROM updates WHERE id = '".$_GET['getupdate']."'")) {
+				if ($result) {
+					echo json_encode(mysqli_fetch_array($result));
+					return;
+				}
+				else {
+					echo json_encode(['success' => false]);
+					return;
+				}
+			}
+			else {
+				echo json_encode(['success' => false]);
+				return;
+			}
+		}
+		else {
+			echo json_encode(['success' => false]);
+			return;
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
@@ -89,7 +144,7 @@
 				  </li>
 				</ul>
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
+				<li><a href="Userpage.php"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
 				<li><a href="Logout.php"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
 			  </ul>
 			</div>
