@@ -20,7 +20,7 @@
 		}
 	}
 	
-	if (isset($_POST["AddUpdateNote"])) {
+	if (isset($_POST["AddUpdateNote"]) && $_SESSION["username"] == "admin") {
 		if ($conn = Connect()) {
 			if (preg_replace('/[^A-Za-z0-9\-\s+-]/', '', $_POST['NewUpdateTitle']) != $_POST['NewUpdateTitle']) {
 				//echo "no1";
