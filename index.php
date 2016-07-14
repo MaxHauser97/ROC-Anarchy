@@ -7,7 +7,7 @@
 	include 'Includes.php';
 	
 	$title = "Failed to load update...";
-	$text = "Faied to load update...";
+	$text = "Failed to load update...";
 	$totalposts = 1;
 	
 	if ($conn = Connect()) {
