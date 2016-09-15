@@ -7,7 +7,7 @@
 	include 'Includes.php';
 	
 	$title = "Failed to load update...";
-	$text = "Faied to load update...";
+	$text = "Failed to load update...";
 	$totalposts = 1;
 	
 	if ($conn = Connect()) {
@@ -53,7 +53,6 @@
 		}
 	}
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
@@ -72,15 +71,12 @@
 		<style>
 			body{background-color: #f5f5f5;}
 			.roc{color: #EF5350;}
-			a{color: #333;}
+			.container-fluid:nth-child(4) .col-sm-3.text-center a {bottom: 0; color: #333; left: 0; padding: 60px 59px 0 10px; position: absolute; transition: all 500ms ease 0s;}
 			a:hover{text-decoration: none;}
 			.glyphicon.glyphicon-fire{color: #808080;}
 			h3{border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 0px;}
 			.meer-info{background-color: #fff; border: 1px solid; padding: 75px 0px 5px 15px; text-align: left; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-weight: bold;}
-			.col-sm-3:nth-child(1) p.meer-info{border-color: #3F51B5;}
-			.col-sm-3:nth-child(2) p.meer-info{border-color: #009688;}
-			.col-sm-3:nth-child(3) p.meer-info{border-color: #FFC107;}
-			.col-sm-3:nth-child(4) p.meer-info{border-color: #E53935;}
+			.container-fluid:nth-child(4) .col-sm-3 p.meer-info {border-color: #ffc107; position: relative;}
 			body .jumbotron:nth-child(2){margin-bottom: 0px;}
 			.container-fluid:nth-child(5) .col-md-4 > p{
 				background-color: #fff;
@@ -90,6 +86,22 @@
 				border-bottom-left-radius: 5px; 
 				border-bottom-right-radius: 5px;
 				font-weight: bold;
+			}
+			.container-fluid:nth-child(4) .col-sm-3.text-center a:hover {
+			background-color: #dedede;
+			border-radius: 3px;
+			color: #337ab7;
+			padding-top: 60px;
+			}
+			.container-fluid:nth-child(5) .col-md-4 a {
+			bottom: 0;
+			color: #333;
+			left: 0;
+			padding: 142px 110px 0 10px;
+			position: absolute;
+			}
+			.container-fluid:nth-child(5) .col-md-4  p{
+			position: relative;
 			}
 			.zoeken {
 				background-color: #808080;
@@ -132,7 +144,7 @@
 				  </li>
 				</ul>
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
+				<li><a href="Userpage.php"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
 				<li><a href="Logout.php"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
 			  </ul>
 			</div>
@@ -242,7 +254,6 @@
 				</div>
 			  </div>
 			</div>
-
 			<div class="col-md-6">
 			  <div class="panel-group" id="accordion">
 				<div class="panel panel-default">
@@ -279,7 +290,6 @@
 			</div>			
 			</div>
 		</div>
-
 		<script>
 			var current = 1;
 			
@@ -315,6 +325,5 @@
 				
 			});			
 		</script>
-
 	</body>
 </html>
