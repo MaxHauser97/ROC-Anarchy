@@ -5,4 +5,6 @@
 	define("databasepass", "root");
 	define("databasename", "rocanarchy");
 	define("environment", "dev");
+	define("maintenance", 0); //0: No, 1: Yes
+	define("usesSSL", true); //Does your site have SSL? (https)
 ?>
