@@ -23,14 +23,24 @@
 	function Query ($tablename, $query) {
 		if ($conn = Connect()) {
 			if ($result = mysqli_query($conn, $query)) {
-				return $result;
+				if (mysqli_num_rows($result) != null) {
+					return $result;
+				}
+				else {
+					return false; //No data
+				}
 			}
 			else {
 				include 'CreateDatabases.php';
 				if (JustDoIt()) {
 					//Table created!						
 					if ($result = mysqli_query($conn, $query)) {
-						return $result;
+						if (mysqli_num_rows($result) != null) {
+							return $result;
+						}
+						else {
+							return false; //No data
+						}
 					}
 					else {
 						return false;

@@ -1,7 +1,12 @@
 <?php
 	session_start();
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		//if (!isset($_GET["li"])) {
+			header("Location: Login.php?login=false");
+		//}
+		/*else {
+			header("Location: Login.php?sessError");
+		}*/
 	}
 	
 	include 'Includes.php';
