@@ -41,10 +41,29 @@
 				<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
 			";
 		}
+		else if ($_GET["subject"] == "bruteforce") {
+			$title = "Bruteforce";
+			$titleDing = "Wat is bruteforce?";
+			$text = "<h2>Bruteforce</h2>Bruteforce betekent letterlijk: brute kracht.<br>De techniek is basicly: Gebruik alle karakters in het alfabet en vorm met alle karakters alle mogelijke combinaties net zo lang totdat je het juiste wachtwoord hebt gevonden.<br>Deze aanval wordt door de meeste hackers gebruikt om voorbij <a href='beveiliging-edu.php'>encryptie</a> te komen en toch iemands account te kunnen stelen.<h2>Remedie</h2>Er zijn verschillende oplossingen voor dit probleem. Een daarvan is een maximaal aantal pogingen om in te loggen voordat het account gelocked wordt. Een andere oplossing is het gebruiken van een <a href='TheMoreYouKnow.php?subject=wachtwoordzin'>wachtwoordzin.</a>";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='beveiliging-edu.php'>Encryptie</a><br>
+				<a href='TheMoreYouKnow.php?subject=wachtwoordzin'>Wachtwoordzinnen</a><br>
+			";
+		}
+		else if ($_GET["subject"] == "wachtwoordzin") {
+			$title = "Wachtwoordzinnen";
+			$titleDing = "Wat is een wachtwoordzin?";
+			$text = "<h2>Wachtwoordzinnen</h2>Wachtwoordzinnen zijn zinnen die je makkelijk kan onthouden en gebruiken als wachtwoord. Dit is veel veiliger dan een normaal wachtwoord, omdat een lange zin veel lastiger te <a href='TheMoreYouKnow.php?subject=bruteforce'>bruteforcen</a> is.<br>Een voorbeeld van een wachtwoordzin is: Een aap kan niet ver springen.";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='TheMoreYouKnow.php?subject=bruteforce'>Bruteforce</a><br>
+			";
+		}
 		else {
 			$title = "Niet gevonden";
 			$titleDing = "404 uitleg niet gevonden.";
-			$text = "<h2>404</h2>Nee serieus, we hebben het niet. Ga maar weer terug naar het dasboard.";
+			$text = "<h2>404</h2>Nee serieus, we hebben het niet. Ga maar weer terug naar het <a href='index.php'>dasboard</a>, of bekijk de <a href='TheMoreYouKnow.php'>index van TheMoreYouKnow</a>";
 		}
 	}
 ?>
