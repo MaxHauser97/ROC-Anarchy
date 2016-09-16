@@ -1,8 +1,10 @@
 <?php
 	$ignoreSSL = false;
-	foreach (ignoreSSLBrowser as $browser) {
-		if (get_browserName($_SERVER['HTTP_USER_AGENT']) == $browser) {
-			$ignoreSSL = true;
+	if ($_SERVER['SERVER_NAME'] != "localhost") {
+		foreach (ignoreSSLBrowser as $browser) {
+			if (get_browserName($_SERVER['HTTP_USER_AGENT']) == $browser) {
+				$ignoreSSL = true;
+			}
 		}
 	}
 	
