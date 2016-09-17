@@ -1,3 +1,16 @@
+<?php
+if(isset($_POST["inloggen"])){
+$conn  = new mysqli_query("localhost","root","root","newDB");
+
+$result = mysqli_query($conn, "SELECT * FROM employees");
+
+while($row = mysqli_fetch_array($result)) {
+ echo $row["Lastname"]; 
+}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -37,6 +50,10 @@
 input.middle:focus {
     outline-width: 0;
 }
+
+.container-fluid{margin-bottom: 30px;}
+.container-fluid:first-child{display: none;}
+.container-fluid:last-child{margin-top: 10%;}
   </style>
 </head>
 
@@ -52,7 +69,7 @@ input.middle:focus {
 					<span class="glyphicon glyphicon-fire" style="color: #EF5350; font-size: 30px;"></span>
 				  </div>
 				  <div class="col-xs-8">
-					<input class="form-control" autofocus id="ex3" type="text" placeholder="Zoek naar SQL, PHP, JQUERY, JAVASCRIPT en BOOTSTRAP functies ">
+					<input class="form-control" id="ex3" type="text" placeholder="Zoek naar SQL, PHP, JQUERY, JAVASCRIPT en BOOTSTRAP functies ">
 				  </div>				  
 				  <div class="col-xs-2">
 					<input class="form-control zoeken" id="ex3" type="submit" value="Zoeken">
@@ -67,5 +84,32 @@ input.middle:focus {
 		</div>
 		</div>
 	</div> 
+	
+	
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="jumbotron" style="background-color: #fff; border: 1px solid #f1f1f1;">
+						<form role="form">
+						<div class="form-group">
+						<input type="text" class="form-control" autofocus id="gebruikersnaam" placeholder="Gebruikersnaam">
+						</div>
+						<div class="form-group">
+						<input type="password" class="form-control" id="pwd" placeholder="Wachtwoord">
+						</div>
+						<input type="submit" value="Inloggen" class="btn btn-default" name="inloggen" style="width: 100%;"></input>
+						</form>						
+					</div>
+				</div>
+				<div class="col-md-4">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
+
