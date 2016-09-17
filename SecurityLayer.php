@@ -19,10 +19,20 @@
 	
 	function get_browserName ($userAgent) {
 		if (strpos($userAgent, "Chrome")) {
-			return 'Chrome';
+			if (strpos($userAgent, "Mobile")) {
+				return 'ChromeM';
+			}
+			else {
+				return 'Chrome';
+			}
 		}
 		elseif(strpos($userAgent, "Firefox")) {
-			return 'Firefox';
+			if (strpos($userAgent, "Mobile")) {
+				return 'FirefoxM';
+			}
+			else {
+				return 'Firefox';
+			}
 		}
 		elseif(strpos($userAgent, "MSIE") || strpos($userAgent, "Trident/7")) {
 			return 'Internet Explorer';

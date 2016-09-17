@@ -20,7 +20,7 @@ body{
 }
 
 .col-sm-4 span{
-	color: #808080;
+	color: #adadad;
 	text-align: center;
 	font-size: 75px;
 }
@@ -29,7 +29,7 @@ body{
 	margin: 10px;
 	font-size: 1.5em;
 	text-transform: uppercase;
-	color: #808080;
+	color: #adadad;
 }
 
 h2{
@@ -62,12 +62,48 @@ form.form-inline{
 
 /*MOBILES*/
 @media (max-width: 425px) {/*Max width for mobiles are 425PX, afther that, they become tablets.*/
+	body {
+		overflow: auto;
+	}
 	
+	.col-sm-4 {
+		display: inline;
+		float: left;
+		width: 33.3%;
+		margin-top: -30px;
+	}
+	
+	.col-sm-4 span {
+		font-size: 30px;
+	}
+	
+	.col-sm-4 p {
+		font-size: inherit;
+	}
+	
+	.wrong,
+	.error{
+		text-align: center;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		color: #EF5350;
+		margin: 0 auto;
+		margin: 0px;
+		padding: 0px;
+		z-index: 100;
+		font-size: 0.9em;
+	}
 }
 
 /*TABLETS*/
 @media (min-width: 426px) and (max-width: 768px) {/*Max width for tablets are 768PX, afther that, they become laptops & pcs.*/
-	
+	body {
+		overflow: auto;
+	}
 }
 
 /*HUGE SCREENS (2K)*/
