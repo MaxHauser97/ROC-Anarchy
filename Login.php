@@ -16,7 +16,7 @@
 		$password = $_POST["pwd"];
 	}
 	
-	if ($_POST && $conn = Connect()) {
+	if (!$_POST && $conn = Connect()) {
 		//We have connection!
 		if ($result = Query("users", "SELECT * FROM users WHERE name = '$username'")) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -46,58 +46,41 @@
 
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-  <title>ROC Anarchy</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="Login.css">
-</head>
-<body>
+	<head>
+		<title>ROC - Anarchy</title>
+		<link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
+		<link rel="stylesheet" href="Login.css">
+	</head>
+	<body>
 
-<div class="container-fluid">
-	<div class="container loginwrapper">
-		<h1><span class="glyphicon glyphicon-fire"></span>Welkom op ROC Anarchy!</h1>
-		<p>Toch maar wat leren dan? <br>Log in om toegang te krijgen tot de informatie die je nodig hebt om w&#233;l te slagen.</p>
+	<div id="GaNaarTMiddenVerdomme">
+		<div class="jumbotron text-center style='padding: 100px 25px;'">
+			<h2><span class="glyphicon glyphicon-fire"></span> ROC Anarchy</h2>
+			<form method="POST" action="Login.php" class="form-inline">
+				<div class="form-group">
+					<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name="pwd" placeholder="Wachtwoord">
+				</div>
+				<button type="submit" class="btn btn-default">Inloggen</button>
+			</form>
+		</div>
 
-		<form class="form-horizontal" action="Login.php" method="POST" role="form">
-			<div class="form-group">
-			  <label class="control-label col-sm-3" for="user">Gebruikersnaam:</label>
-			  <div class="col-sm-5">
-				<input type="text" class="form-control" id="username" name="username" placeholder="Gebruikersnaam" autofocus>
-			  </div>
-			</div>
-
-			<div class="form-group">
-			  <label class="control-label col-sm-3" for="pwd">Wachtwoord:</label>
-			  <div class="col-sm-5">
-				<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Wachtwoord">
-			  </div>
-			</div>
-
-		  <div class="form-group">
-			<div class="col-sm-offset-3 col-sm-10">
-			  <button type="submit" class="btn btn-default button">Inloggen</button>
-			</div>
-		  </div>
-		</form>
-	</div>
-</div>
-
-<div class="container-fluid footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<p class="text-center">
-					Een initiatief van leerlingen :)
-				</p>
+		<div class="container" style="">
+			<div class="row">
+				<div class="col-sm-4"><span class="	glyphicon glyphicon-blackboard"></span><p>Leren</p></div>
+				<div class="col-sm-4"><span class="	glyphicon glyphicon-comment"></span><p>Delen</p></div>
+				<div class="col-sm-4"><span class="	glyphicon glyphicon-education"></span><p>Slagen</p></div>
 			</div>
 		</div>
 	</div>
-</div>
 
-</body>
+	</body>
 </html>
