@@ -59,6 +59,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
 		<link rel="stylesheet" href="Login.css">
+		<span class="glyphicon glyphicon-menu-hamburger" id="hamburger"></span>
 	</head>
 	<body>
 
@@ -86,12 +87,16 @@
 	</div>
 
 	<div class="row footer">
-	  <div class="col-sm-4">Serverstatus <span class='glyphicon glyphicon-remove-circle serverStatus' style='color: red; font-size: 1em;'></span></div>
-	  <div class="col-sm-4">Dan leren wij het zelf wel..</div>
-	  <div class="col-sm-4">&copy;Copyright <?php echo date('Y'); ?></div>
+		<div class="col-sm-4" id="ServerStat">Serverstatus <span class='glyphicon glyphicon-remove-circle serverStatus' style='color: red; font-size: 1em;'></span></div>
+		<div class="col-sm-4">Dan leren wij het zelf wel..</div>
+		<div class="col-sm-4">&copy;Copyright <?php echo date('Y'); ?></div>
 	</div>
 	
 	</body>
+	
+	<div id="HamburgerSlide" style="display:none; width: 75%;"><br><br><br>
+		<div>Serverstatus <span class='glyphicon glyphicon-remove-circle serverStatus' style='color: red; font-size: 1em;'></span></div>
+	</div>
 	
 	<script>
 		var interval = <?php if ($serverError == false) { echo "setTimeout("; } else { echo "setInterval("; } ?>function() {
@@ -106,5 +111,9 @@
 				}
 			});
 		}, <?php if ($serverError == false) { echo "1"; } else { echo "60000"; } ?>);
+		
+		$("#hamburger").click(function() {
+			$("#HamburgerSlide").animate({width:'toggle'},350);
+		});
 	</script>
 </html>

@@ -60,9 +60,13 @@ form.form-inline{
 	font-size: 2em;
 }
 
+#hamburger {
+	display: none;
+}
+
 /*footer*/
   .footer{position: fixed; bottom: 0; width: 100%;}
-  .footer .col-sm-4{text-align: center; text-transform: uppercase; font-size: 1.2em;}
+  .footer .col-sm-4{text-align: center; text-transform: uppercase; font-size: 9px;}
 
 /*MOBILES*/
 @media (max-width: 425px) {/*Max width for mobiles are 425PX, afther that, they become tablets.*/
@@ -100,6 +104,38 @@ form.form-inline{
 		padding: 0px;
 		z-index: 100;
 		font-size: 0.9em;
+	}
+	
+	#hamburger {
+		right:0;
+		position: absolute;
+		display: block;
+		font-size: 2em;
+		z-index: 100;
+	}
+	
+	#HamburgerSlide {
+		top:0;
+		right:0;
+		position: absolute;
+		height: 100%;
+		background-color: #fff;
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.9);
+	}
+	
+	#HamburgerSlide div {
+		margin-left: 15px;
+	}
+	
+	#ServerStat {
+		content: '';
+		width: 0px !important;
+		font-size: 0px;
+	}
+	
+	.footer .col-sm-4 {
+		float: none;
+		width: 50%;
 	}
 }
 
@@ -139,5 +175,9 @@ form.form-inline{
 		color: #808080;
 		text-align: center;
 		font-size: 100px;
+	}
+	
+	.footer .col-sm-4{
+		font-size: 1.2em;
 	}
 }
