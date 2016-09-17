@@ -81,6 +81,14 @@
 			</div>
 		</div>
 	</div>
+	
+
+	<div class="row footer">
+	  <div class="col-sm-4">Serverstatus </div>
+	  <div class="col-sm-4">Dan leren wij het zelf wel..</div>
+	  <div class="col-sm-4">&copy;<?php date('Y'); ?></div>
+	</div>
+
 
 	</body>
 </html>
