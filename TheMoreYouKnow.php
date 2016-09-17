@@ -11,6 +11,8 @@
 		<a href='TheMoreYouKnow.php?subject=cookies'>Cookies</a><br>
 		<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
 		<a href='TheMoreYouKnow.php?subject=DataTypes'>DataTypes</a><br>
+		<a href='TheMoreYouKnow.php?subject=bruteforce'>Bruteforce</a><br>
+		<a href='TheMoreYouKnow.php?subject=wachtwoordzin'>Wachtwoordzinnen</a><br>
 	";
 	
 	if (isset($_GET["subject"])) {
