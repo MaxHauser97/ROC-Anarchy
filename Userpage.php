@@ -72,29 +72,15 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="#" class="roc"><span class="glyphicon glyphicon-fire"></span><span class="roc"> ROCAnarchy</span></a>
+			<div class="container-fluid" id="LoadNavbar">
+				
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-			  <ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
-				<li><a href="database-edu.php">Databases</a></li>
-				<li><a href="login-edu.php">Loginsysteem</a></li>
-				<li><a href="registratie-edu.php">Registratiesysteem</a></li>
-				<li><a href="crud-edu.php">CRUD</a></li>
-			  </ul>
-			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
-				<li><a href="Logout.php"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
-			  </ul>
-			</div>
-		  </div>
+			<script> 
+				$(function(){
+					$("#LoadNavbar").load("Navbar.html");
+					var interval = setInterval(function(){if ($("#userHref").length) {$("#userHref").append("<?php echo $_SESSION["username"];?>"); clearInterval(interval);}},1);
+				});
+			</script>
 		</nav>
 
 		<div class="container-fluid">
