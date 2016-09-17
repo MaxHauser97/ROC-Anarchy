@@ -62,7 +62,7 @@ form.form-inline{
 
 /*footer*/
   .footer{position: fixed; bottom: 0; width: 100%;}
-  .footer .col-sm-4{text-align: center;}
+  .footer .col-sm-4{text-align: center; text-transform: uppercase; font-size: 1.2em;}
 
 /*MOBILES*/
 @media (max-width: 425px) {/*Max width for mobiles are 425PX, afther that, they become tablets.*/

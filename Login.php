@@ -16,6 +16,8 @@
 		$password = $_POST["pwd"];
 	}
 	
+	$serverError = false;
+	
 	if ($_POST && $conn = Connect()) {
 		//We have connection!
 		if ($result = Query("users", "SELECT * FROM users WHERE name = '$username'")) {
@@ -40,7 +42,8 @@
 		}
 	}
 	elseif($_POST) {
-		echo "<div class='error'>Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
+		echo "<div class='error'>Server status: <span class='glyphicon glyphicon-remove-circle serverStatus' style='color: red;'></span></div>";
+		$serverError = true;
 	}
 ?>
 
@@ -81,14 +84,27 @@
 			</div>
 		</div>
 	</div>
-	
 
 	<div class="row footer">
-	  <div class="col-sm-4">Serverstatus </div>
+	  <div class="col-sm-4">Serverstatus <span class='glyphicon glyphicon-remove-circle serverStatus' style='color: red; font-size: 1em;'></span></div>
 	  <div class="col-sm-4">Dan leren wij het zelf wel..</div>
-	  <div class="col-sm-4">&copy;<?php date('Y'); ?></div>
+	  <div class="col-sm-4">&copy;Copyright <?php echo date('Y'); ?></div>
 	</div>
-
-
+	
 	</body>
+	
+	<script>
+		var interval = <?php if ($serverError == false) { echo "setTimeout("; } else { echo "setInterval("; } ?>function() {
+			$.ajax("Ajax.php?getServerStatus", {
+				success: function (string) {
+					var string = JSON.parse(string);
+					if (string == "OK") {
+						$(".serverStatus").prop("class", "glyphicon glyphicon-ok-circle serverStatus");
+						$(".serverStatus").css("color","green");
+						clearInterval(interval);
+					}
+				}
+			});
+		}, <?php if ($serverError == false) { echo "1"; } else { echo "60000"; } ?>);
+	</script>
 </html>
