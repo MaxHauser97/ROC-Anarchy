@@ -1,13 +1,18 @@
 <?php
 	session_start();
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		//if (!isset($_GET["li"])) {
+			header("Location: Login.php?login=false");
+		//}
+		/*else {
+			header("Location: Login.php?sessError");
+		}*/
 	}
 	
 	include 'Includes.php';
 	
 	$title = "Failed to load update...";
-	$text = "Faied to load update...";
+	$text = "Failed to load update...";
 	$totalposts = 1;
 	
 	if ($conn = Connect()) {
@@ -59,10 +64,10 @@
 	<title>ROCAnarchy - Dashboard</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="http://st27.nl/School/siteIcon.png">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -118,37 +123,15 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="#" class="roc"><span class="glyphicon glyphicon-fire"></span><span class="roc"> ROCAnarchy</span></a>
+			<div class="container-fluid" id="LoadNavbar">
+				
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-				  <li class="active"><a href="#">Home</a></li>
-				  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Onderwerpen <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-					  <li><a href="database-edu.php">Databases</a></li>
-					  <li><a href="login-edu.php">Loginsystemen</a></li>
-					  <li><a href="registratie-edu.php">Registratiesystemen</a></li>
-					  <li><a href="crud-edu.php">CRUD</a></li>
-					  <li><a href="beveiliging-edu.php">Beveiliging</a></li>
-					  <li><a href="gastenboek-edu.php">Gastenboek</a></li>
-					  <li><a href="webshop-edu.php">Webshop</a></li>
-					  <li><a href="TheMoreYouKnow.php">The more you know</a></li>
-					</ul>
-				  </li>
-				</ul>
-			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="Userpage.php"><span class="glyphicon glyphicon-user"></span>  <?php echo $_SESSION["username"]; ?></a></li>
-				<li><a href="Logout.php"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
-			  </ul>
-			</div>
-		  </div>
+			<script> 
+				$(function(){
+					$("#LoadNavbar").load("Navbar.html");
+					var interval = setInterval(function(){if ($("#userHref").length) {$("#userHref").append("<?php echo $_SESSION["username"];?>"); clearInterval(interval);}},1);
+				});
+			</script>
 		</nav>
 
 		<div class="container-fluid">
@@ -322,7 +305,7 @@
 			}
 			
 			$(document).ready(function(){
-				
+				$(".glyphicon-user").append("<?php echo $_SESSION["username"];?>");
 			});			
 		</script>
 	</body>

@@ -16,9 +16,9 @@
 				if (GetData("SELECT * FROM users WHERE name='admin'") == false) {
 					echo InsertData("INSERT INTO users (name, password) VALUES ('admin', '6d83fb6436ca42f5283d85c8c186c2d780aae6b6325dd17adbaaab28d77edf54068197ca5cc652a85ff2b104f597f3de13340eaf97edc6253a7f250142b8f14f')");
 				}
-				echo CreateTable('updates (id int AUTO_INCREMENT PRIMARY KEY, title varchar(255), text varchar(255))');
+				echo CreateTable('updates (id int AUTO_INCREMENT PRIMARY KEY, title text(255), text text(255))');
 				if (GetData("SELECT * FROM updates WHERE title='Test'") == false) {
-					echo InsertData("INSERT INTO updates (title, text) VALUES ('Test', 'Hier komen in de toekomst updates over de site te staan.')");
+					echo InsertData("INSERT INTO updates (title, text) VALUES ('Test', 'Hier komen updates over de site te staan.')");
 				}
 			}
 			else {

@@ -11,6 +11,8 @@
 		<a href='TheMoreYouKnow.php?subject=cookies'>Cookies</a><br>
 		<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
 		<a href='TheMoreYouKnow.php?subject=DataTypes'>DataTypes</a><br>
+		<a href='TheMoreYouKnow.php?subject=bruteforce'>Bruteforce</a><br>
+		<a href='TheMoreYouKnow.php?subject=wachtwoordzin'>Wachtwoordzinnen</a><br>
 	";
 	
 	if (isset($_GET["subject"])) {
@@ -41,10 +43,29 @@
 				<a href='TheMoreYouKnow.php?subject=variabelen'>Variabelen</a><br>
 			";
 		}
+		else if ($_GET["subject"] == "bruteforce") {
+			$title = "Bruteforce";
+			$titleDing = "Wat is bruteforce?";
+			$text = "<h2>Bruteforce</h2>Bruteforce betekent letterlijk: brute kracht.<br>De techniek is basicly: Gebruik alle karakters in het alfabet en vorm met alle karakters alle mogelijke combinaties net zo lang totdat je het juiste wachtwoord hebt gevonden.<br>Deze aanval wordt door de meeste hackers gebruikt om voorbij <a href='beveiliging-edu.php'>encryptie</a> te komen en toch iemands account te kunnen stelen.<h2>Remedie</h2>Er zijn verschillende oplossingen voor dit probleem. Een daarvan is een maximaal aantal pogingen om in te loggen voordat het account gelocked wordt. Een andere oplossing is het gebruiken van een <a href='TheMoreYouKnow.php?subject=wachtwoordzin'>wachtwoordzin.</a>";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='beveiliging-edu.php'>Encryptie</a><br>
+				<a href='TheMoreYouKnow.php?subject=wachtwoordzin'>Wachtwoordzinnen</a><br>
+			";
+		}
+		else if ($_GET["subject"] == "wachtwoordzin") {
+			$title = "Wachtwoordzinnen";
+			$titleDing = "Wat is een wachtwoordzin?";
+			$text = "<h2>Wachtwoordzinnen</h2>Wachtwoordzinnen zijn zinnen die je makkelijk kan onthouden en gebruiken als wachtwoord. Dit is veel veiliger dan een normaal wachtwoord, omdat een lange zin veel lastiger te <a href='TheMoreYouKnow.php?subject=bruteforce'>bruteforcen</a> is.<br>Een voorbeeld van een wachtwoordzin is: Een aap kan niet ver springen.";
+			
+			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
+				<a href='TheMoreYouKnow.php?subject=bruteforce'>Bruteforce</a><br>
+			";
+		}
 		else {
 			$title = "Niet gevonden";
 			$titleDing = "404 uitleg niet gevonden.";
-			$text = "<h2>404</h2>Nee serieus, we hebben het niet. Ga maar weer terug naar het dasboard.";
+			$text = "<h2>404</h2>Nee serieus, we hebben het niet. Ga maar weer terug naar het <a href='index.php'>dasboard</a>, of bekijk de <a href='TheMoreYouKnow.php'>index van TheMoreYouKnow</a>";
 		}
 	}
 ?>
@@ -55,10 +76,10 @@
   <title>The More You Know</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="http://st27.nl/School/siteIcon.png">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <style>
 	.jumbotron{background-color:#00838F; color: #fff; margin-bottom: 0px;}
 	a{color: #808080;}
