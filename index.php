@@ -30,33 +30,6 @@
 			}
 		}
 	}
-	
-	if (isset($_REQUEST["getupdate"])) {
-		if ($conn = Connect()) {
-			if (preg_replace('/[^A-Za-z0-9\-]/', '', $_GET['getupdate']) != $_GET['getupdate']) {
-				echo json_encode(['success' => false]); //TODO: Make an Ajax.php in which we will do all Ajax calls containing just PHP functions. So things don't mess up.
-				return;
-			}
-			if ($result = Query("updates", "SELECT * FROM updates WHERE id = '".$_GET['getupdate']."'")) {
-				if ($result) {
-					echo json_encode(mysqli_fetch_array($result));
-					return;
-				}
-				else {
-					echo json_encode(['success' => false]);
-					return;
-				}
-			}
-			else {
-				echo json_encode(['success' => false]);
-				return;
-			}
-		}
-		else {
-			echo json_encode(['success' => false]);
-			return;
-		}
-	}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -71,6 +44,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<style>
@@ -119,6 +93,14 @@
 				box-shadow: 0px 0px 10px #707070 inset;
 				display: none;
 			}
+			.ui-loader { /*Fek off*/
+				display: none;
+				z-index: 9999999;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				border: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -143,7 +125,7 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container-fluid" id="UpdateFeed">
 			<div class="container">
 			<div class="jumbotron" style="background-color: #8ad9f1; border-radius: 5px; border: 1px solid #46c3e9; margin-bottom: 0px;">
 				<h4 id="updateTitle"><?php echo $title; ?></h4>
@@ -277,36 +259,60 @@
 			var current = 1;
 			
 			function next () {
-				$.ajax("index.php?getupdate="+(current+1), {
+				$.ajax("Ajax.php?getupdate="+(current+1), {
 					success: function (data) {
-						var arr = JSON.parse(data);
-						if (arr) {
-							$("#updateTitle").text(arr["title"]);
-							$("#updateMessage").text(arr["text"]);
-							current++;
-							$("#updateCurrent").text(current);
+						var parsed = JSON.parse(data);
+						if (parsed['success']) {
+							var arr = parsed['result'];
+							if (arr) {
+								$("#updateTitle").text(arr["title"]);
+								$("#updateMessage").text(arr["text"]);
+								current++;
+								$("#updateCurrent").text(current);
+							}
+							$("#updateMessage").fadeIn();
 						}
 					}
 				});
 			}
 			
 			function previous () {
-				$.ajax("index.php?getupdate="+(current-1), {
+				$.ajax("Ajax.php?getupdate="+(current-1), {
 					success: function (data) {
-						var arr = JSON.parse(data);
-						if (arr) {
-							$("#updateTitle").text(arr["title"]);
-							$("#updateMessage").text(arr["text"]);
-							current--;
-							$("#updateCurrent").text(current);
+						var parsed = JSON.parse(data);
+						if (parsed['success']) {
+							var arr = parsed['result'];
+							if (arr) {
+								$("#updateTitle").text(arr["title"]);
+								$("#updateMessage").text(arr["text"]);
+								current--;
+								$("#updateCurrent").text(current);
+							}
+							$("#updateMessage").fadeIn();
 						}
 					}
 				});
 			}
 			
-			$(document).ready(function(){
-				$(".glyphicon-user").append("<?php echo $_SESSION["username"];?>");
-			});			
+			$(document).ready(function() {
+				
+			});
+			
+			$(document).on('pageinit', function(event){
+				$("#UpdateFeed").on("swipeleft", function() {
+					$("#updateMessage").fadeOut(500);
+					setTimeout(function() {
+						next();
+					}, 500);
+				});
+				
+				$("#UpdateFeed").on("swiperight", function() {
+					$("#updateMessage").fadeOut(500);
+					setTimeout(function() {
+						previous();
+					}, 500);
+				});
+			});
 		</script>
 	</body>
 </html>
