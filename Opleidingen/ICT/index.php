@@ -272,7 +272,7 @@
 			
 			function next () {
 				if (current < totalposts) {
-					$.ajax("Ajax.php?getupdate="+(current+1), {
+					$.ajax("../../Framework/Ajax.php?getupdate="+(current+1), {
 						success: function (data) {
 							var parsed = JSON.parse(data);
 							if (parsed['success']) {
@@ -292,7 +292,7 @@
 			
 			function previous () {
 				if (current > 1) {
-					$.ajax("Ajax.php?getupdate="+(current-1), {
+					$.ajax("../../Framework/Ajax.php?getupdate="+(current-1), {
 						success: function (data) {
 							var parsed = JSON.parse(data);
 							if (parsed['success']) {

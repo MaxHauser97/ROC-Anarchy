@@ -100,7 +100,7 @@
 	
 	<script>
 		var interval = <?php if ($serverError == false) { echo "setTimeout("; } else { echo "setInterval("; } ?>function() {
-			$.ajax("Ajax.php?getServerStatus", {
+			$.ajax("Framework/Ajax.php?getServerStatus", {
 				success: function (string) {
 					var string = JSON.parse(string);
 					if (string == "OK") {
