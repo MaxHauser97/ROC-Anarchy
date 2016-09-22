@@ -94,7 +94,7 @@
 			</div>
 			<script> 
 				$(function(){
-					$("#LoadNavbar").load("Navbar.html");
+					$("#LoadNavbar").load("NavbarUserPage.html");
 					var interval = setInterval(function(){if ($("#userHref").length) {$("#userHref").append("<?php echo $_SESSION["username"];?>"); clearInterval(interval);}},1);
 				});
 			</script>
