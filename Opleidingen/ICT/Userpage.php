@@ -1,9 +1,10 @@
 <?php
 	session_start();
-	include 'Includes.php';
+	$rootDir = '../..';
+	include $rootDir.'/Framework/Includes.php';
 
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		header("Location: $rootDir/Login.php?login=false");
 	}
 	
 	$adminform = "";
@@ -94,7 +95,7 @@
 			</div>
 			<script> 
 				$(function(){
-					$("#LoadNavbar").load("NavbarUserPage.html");
+					$("#LoadNavbar").load("navbars/NavbarUserPage.html");
 					var interval = setInterval(function(){if ($("#userHref").length) {$("#userHref").append("<?php echo $_SESSION["username"];?>"); clearInterval(interval);}},1);
 				});
 			</script>

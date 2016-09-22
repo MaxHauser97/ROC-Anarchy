@@ -1,7 +1,11 @@
 <?php
 	session_start();
+	
+	$rootDir = '../..';
+	include $rootDir.'/Framework/Includes.php';
+	
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		header("Location: $rootDir/Login.php?login=false");
 	}
 	
 	$title = "The more you know";
@@ -49,7 +53,7 @@
 			$text = "<h2>Bruteforce</h2>Bruteforce betekent letterlijk: brute kracht.<br>De techniek is basicly: Gebruik alle karakters in het alfabet en vorm met alle karakters alle mogelijke combinaties net zo lang totdat je het juiste wachtwoord hebt gevonden.<br>Deze aanval wordt door de meeste hackers gebruikt om voorbij <a href='beveiliging-edu.php'>encryptie</a> te komen en toch iemands account te kunnen stelen.<h2>Remedie</h2>Er zijn verschillende oplossingen voor dit probleem. Een daarvan is een maximaal aantal pogingen om in te loggen voordat het account gelocked wordt. Een andere oplossing is het gebruiken van een <a href='TheMoreYouKnow.php?subject=wachtwoordzin'>wachtwoordzin.</a>";
 			
 			$text = $text . "<br><h2>Gerelateerde onderwerpen</h2>
-				<a href='beveiliging-edu.php'>Encryptie</a><br>
+				<a href='edu/beveiliging-edu.php'>Encryptie</a><br>
 				<a href='TheMoreYouKnow.php?subject=wachtwoordzin'>Wachtwoordzinnen</a><br>
 			";
 		}

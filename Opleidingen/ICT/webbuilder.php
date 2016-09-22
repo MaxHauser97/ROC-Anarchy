@@ -1,8 +1,12 @@
 <?php
 	session_start();
+	
+	$rootDir = '../..';
+
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		header("Location: $rootDir/Login.php?login=false");
 	}
+	
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";

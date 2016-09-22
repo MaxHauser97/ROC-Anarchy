@@ -1,7 +1,10 @@
 <?php
 	session_start();
+	$rootDir = '../../..';
+	include $rootDir.'/Framework/Includes.php';
+
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		header("Location: $rootDir/Login.php?login=false");
 	}
 ?>
 
@@ -41,7 +44,7 @@
 <div class="container-fluid"  data-spy="affix" data-offset-top="197" style="background-color: #e8e8e8; z-index: 9999;">
 	<div class="container-fluid">
 		<div class="container">
-			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="Beveiliging-edu.php">Beveiliging</a></p>
+			<p><a href="../index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="Beveiliging-edu.php">Beveiliging</a></p>
 		</div>
 	</div>
 </div>
@@ -106,9 +109,9 @@
 				</pre>
 				Zoals je hierboven kan zien, is de data compleet onherkenbaar gemaakt en kan je dus niet aflezen wat het originele wachtwoord is.<br>
 				Houd wel in gedachten dat MD5 niet de enige vorm van encryptie is, voor meer soorten en geavanceerdere encryptie, klik <a href="http://php.net/manual/en/function.hash.php#104987">hier.</a><br><br>
-				Tegenwoordig is het gokken van een wachtwoord of het <a href="TheMoreYouKnow.php?subject=bruteforce">bruteforcen</a> van een wachtwoord niet heel lastig voor de meeste hackers.<br>
+				Tegenwoordig is het gokken van een wachtwoord of het <a href="../TheMoreYouKnow.php?subject=bruteforce">bruteforcen</a> van een wachtwoord niet heel lastig voor de meeste hackers.<br>
 				Op heel veel sites moet je dan ook een wachtwoord hebben met minimaal 1 hoofdletter, zoveel karakters lang, etc.<br>
-				Dit is tegenwoordig ook niet heel veilig meer. Wij raden je daarom aan om <a href="TheMoreYouKnow.php?subject=wachtwoordzin">wachtwoordzinnen</a> als standaard te forceren.
+				Dit is tegenwoordig ook niet heel veilig meer. Wij raden je daarom aan om <a href="../TheMoreYouKnow.php?subject=wachtwoordzin">wachtwoordzinnen</a> als standaard te forceren.
 			</p>
 		</div>
 		<div class="row">

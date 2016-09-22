@@ -1,12 +1,19 @@
 <?php
 if(isset($_POST["inloggen"])){
-$conn  = new mysqli_query("localhost","root","root","newDB");
+	$conn  = new mysqli_query("localhost","root","root","newDB");
 
-$result = mysqli_query($conn, "SELECT * FROM employees");
+	$result = mysqli_query($conn, "SELECT * FROM employees");
 
-while($row = mysqli_fetch_array($result)) {
- echo $row["Lastname"]; 
+	while($row = mysqli_fetch_array($result)) {
+		echo $row["Lastname"];
+	}
 }
+
+$rootDir = '../../..';
+include $rootDir.'/Framework/Includes.php';
+
+if (!isset($_SESSION["username"])) {
+	header("Location: $rootDir/Login.php?login=false");
 }
 ?>
 

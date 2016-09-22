@@ -1,7 +1,10 @@
 <?php
 	session_start();
+	$rootDir = '../../..';
+	include $rootDir.'/Framework/Includes.php';
+
 	if (!isset($_SESSION["username"])) {
-		header("Location: Login.php?login=false");
+		header("Location: $rootDir/Login.php?login=false");
 	}
 ?>
 
@@ -41,7 +44,7 @@
 <div class="container-fluid"  data-spy="affix" data-offset-top="197" style="background-color: #e8e8e8; z-index: 9999;">
 	<div class="container-fluid">
 		<div class="container">
-			<p><a href="index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="webshop-edu.php">Webshop</a></p>
+			<p><a href="../index.php">Dashboard</a> <span class="glyphicon glyphicon-menu-right"></span> <a href="webshop-edu.php">Webshop</a></p>
 		</div>
 	</div>
 </div>

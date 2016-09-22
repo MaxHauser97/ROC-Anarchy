@@ -1,15 +1,18 @@
 <?php
 	session_start();
+	
+	$rootDir = '../..';
+	
 	if (!isset($_SESSION["username"])) {
 		//if (!isset($_GET["li"])) {
-			header("Location: Login.php?login=false");
+			header("Location: $rootDir/Login.php?login=false");
 		//}
 		/*else {
-			header("Location: Login.php?sessError");
+			header("Location: $rootDir/Login.php?sessError");
 		}*/
 	}
 	
-	include 'Includes.php';
+	include $rootDir.'/Framework/Includes.php';
 	
 	$title = "Failed to load update...";
 	$text = "Failed to load update...";
@@ -118,7 +121,7 @@
 			</div>
 			<script> 
 				$(function(){
-					$("#LoadNavbar").load("NavbarHome.html");
+					$("#LoadNavbar").load("navbars/NavbarHome.html");
 					var interval = setInterval(function(){if ($("#userHref").length) {$("#userHref").append("<?php echo $_SESSION["username"];?>"); clearInterval(interval);}},1);
 				});
 			</script>
@@ -151,19 +154,19 @@
 			<div class="container">
 				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #3F51B5; color: #fff; padding: 5px 0px;">Databases</h3>
-					<p class="meer-info"><a href="database-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+					<p class="meer-info"><a href="edu/database-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
 				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #009688; color: #fff; padding: 5px 0px;">Loginsystemen</h3>
-					<p class="meer-info"> <a href="login-edu.php"> Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+					<p class="meer-info"> <a href="edu/login-edu.php"> Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
 				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #FFC107; color: #fff; padding: 5px 0px;">Registratiesystemen</h3>
-					<p class="meer-info"><a href="registratie-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+					<p class="meer-info"><a href="edu/registratie-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
 				<div class="col-sm-3 text-center">
 					<h3 style="background-color: #E53935; color: #fff; padding: 5px 0px;">CRUD</h3>
-					<p class="meer-info"><a href="crud-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+					<p class="meer-info"><a href="edu/crud-edu.php">Klik hier voor meer info <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
 			</div>
 		</div>
@@ -173,19 +176,19 @@
 				<div class="col-md-4">
 					<h3 style="background-color: #EF6C00; color: #fff; padding: 5px 0px;"" class="text-center">Beveiliging</h3>
 					<p style="border-color: #EF6C00;">
-					<a href="beveiliging-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					<a href="edu/beveiliging-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
 					</p>
 				</div>
 				<div class="col-md-4">
 					<h3 style="background-color: #00838F; color: #fff; padding: 5px 0px;"" class="text-center">Gastenboek</h3>
 					<p style="border-color: #00838F;">
-					<a href="gastenboek-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					<a href="edu/gastenboek-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
 					</p>
 			</div>
 				<div class="col-md-4">
 					<h3 style="background-color: #673AB7; color: #fff; padding: 5px 0px;"" class="text-center">webshop</h3>
 					<p style="border-color: #673AB7;">
-					<a href="webshop-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+					<a href="edu/webshop-edu.php">Klik hier voor meer informatie <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
 					</p>
 			</div>			
 			</div>

@@ -1,5 +1,5 @@
 <?php
-	include 'Includes.php';
+	include 'Framework/Includes.php';
 	
 	if (isset($_GET["login"]) && !isset($_GET["sessError"])) {
 		echo "<div class='error'>Je moet eerst inloggen.</div>";
@@ -26,7 +26,7 @@
 					session_start();
 					if (session_status() == PHP_SESSION_ACTIVE) {
 						$_SESSION["username"] = $username;
-						header("Location: index.php");
+						header("Location: Opleidingen/ICT/index.php"); //TODO: Update database and configure per user where what needs to go.
 					}
 					else {
 						echo "<div class='error'>Uw sessie kon niet worden gestart. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
