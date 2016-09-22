@@ -10,38 +10,55 @@
 	$haschosen = false;
 	
 	if (isset($_GET["action"])) {
-		if ($_GET["action"] == "EditUpdateNotes" && $_SESSION["username"] == "admin") {
-			$haschosen = true;
-			$adminform = "<form action='Userpage.php' method='POST' name='EditUpdateNotesForm' id='UpdateNotesForm'>
-							<input type='text' name='NewUpdateTitle' placeholder='Typ hier een nieuwe update notificatie titel.'>
-							<textarea name='NewUpdateText' form='UpdateNotesForm' placeholder='Typ hier de nieuwe update notificatie' rows='8' cols='160'></textarea><br>
-							<input type='submit' name='AddUpdateNote' value='Voeg nieuwe update notificatie toe.'>
-						</form>";
+		if ($_SESSION["username"] == "admin" || $_SESSION["username"] == "superadmin") {
+			if ($_GET["action"] == "EditUpdateNotes") {
+				$haschosen = true;
+				$adminform = "<form action='Userpage.php' method='POST' name='EditUpdateNotesForm' id='UpdateNotesForm'>
+								<input type='text' name='NewUpdateTitle' placeholder='Typ hier een nieuwe update notificatie titel.'>
+								<textarea name='NewUpdateText' form='UpdateNotesForm' placeholder='Typ hier de nieuwe update notificatie' rows='8' cols='160'></textarea><br>
+								<input type='submit' name='AddUpdateNote' value='Voeg nieuwe update notificatie toe.'>
+							</form>";
+			}
+			if ($_GET["action"] == "ExecuteShellCommands") {
+				$haschosen = true;
+				$adminform = "<form action='Userpage.php?action=ExecuteShellCommands' method='POST' name='ExecuteShellCommandsForm' id='ExecuteShellForm'>
+								<input type='text' name='Command' placeholder='Typ hier een command om uit te voeren.'>
+								<textarea name='OutputText' form='ExecuteShellCommandsForm' placeholder='Hier komt output' rows='8' cols='160'>PLACEHOLDEROUTPUT</textarea><br>
+								<input type='submit' name='ExecuteShellCommand' value='Voer shell command uit.'>
+							</form>";
+			}
 		}
 	}
 	
-	if (isset($_POST["AddUpdateNote"]) && $_SESSION["username"] == "admin") {
-		if ($conn = Connect()) {
-			if (preg_replace('/[^A-Za-z0-9\-\s+-]/', '', $_POST['NewUpdateTitle']) != $_POST['NewUpdateTitle']) {
-				//echo "no1";
-				return;
-			}
-			if (preg_replace('/[^A-Za-z0-9\-\s+-]/', '', $_POST['NewUpdateText']) != $_POST['NewUpdateText']) {
-				//echo "no2";
-				return;
-			}
-			$title = $_POST["NewUpdateTitle"];
-			$text = $_POST["NewUpdateText"];
-			
-			if ($result = Query("updates", "INSERT INTO updates (title, text) VALUES ('$title','$text')")) {
-				//Success
+	if ($_SESSION["username"] == "admin" || $_SESSION["username"] == "superadmin") {
+		if (isset($_POST["AddUpdateNote"])) {
+			if ($conn = Connect()) {
+				if (preg_replace('/[^A-Za-z0-9\-\s+-]/', '', $_POST['NewUpdateTitle']) != $_POST['NewUpdateTitle']) {
+					//echo "no1";
+					return;
+				}
+				if (preg_replace('/[^A-Za-z0-9\-\s+-]/', '', $_POST['NewUpdateText']) != $_POST['NewUpdateText']) {
+					//echo "no2";
+					return;
+				}
+				$title = $_POST["NewUpdateTitle"];
+				$text = $_POST["NewUpdateText"];
+				
+				if ($result = Query("updates", "INSERT INTO updates (title, text) VALUES ('$title','$text')")) {
+					//Success
+				}
+				else {
+					echo "<div class='error'>Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
+				}
 			}
 			else {
 				echo "<div class='error'>Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
 			}
 		}
-		else {
-			echo "<div class='error'>Er is op dit moment een probleem met de verbinding met de databases. Probeer het over 5 minuten nog eens. Als dit probleem zich blijft voordoen, neem dan contact op met een server beheerder.</div>";
+		if (isset($_POST["ExecuteShellCommand"])) {
+			$output = shell_exec($_POST["Command"]);
+			$explode = explode("PLACEHOLDEROUTPUT", $adminform);
+			$adminform = $explode[0] . $output . $explode[1];
 		}
 	}
 ?>
@@ -95,12 +112,15 @@
 			<div class="container">
 				<?php
 					if ($haschosen == false) {
-						if ($_SESSION["username"] == "admin") {
+						if ($_SESSION["username"] == "admin" || $_SESSION["username"] == "superadmin") {
 							echo "<button onclick=\"window.location.href='Userpage.php?action=EditUpdateNotes'\">Wijzig update notificaties.</button>";
+						}
+						if ($_SESSION["username"] == "superadmin") {
+							echo "<button onclick=\"window.location.href='Userpage.php?action=ExecuteShellCommands'\">Voer shell commands uit.</button>";
 						}
 					}
 					else {
-						if ($_SESSION["username"] == "admin") {
+						if ($_SESSION["username"] == "admin" || $_SESSION["username"] == "superadmin") {
 							echo $adminform;
 						}
 					}
