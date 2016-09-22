@@ -106,6 +106,9 @@
 				left: 50%;
 				border: 0;
 			}
+			.noBotMargin {
+				margin-bottom: 0px;
+			}
 		</style>
 	</head>
 	<body>
@@ -188,7 +191,7 @@
 			</div>
 		</div>
 		
-		<div class="jumbotron">
+		<div class="jumbotron noBotMargin">
 			<div class="container" style="max-width: 1080px;">
 			<div class="col-md-6">
 			  <div class="panel-group" id="accordion">
@@ -262,41 +265,46 @@
 		</div>
 		<script>
 			var current = 1;
+			var totalposts = <?php echo $totalposts; ?>;
 			
 			function next () {
-				$.ajax("Ajax.php?getupdate="+(current+1), {
-					success: function (data) {
-						var parsed = JSON.parse(data);
-						if (parsed['success']) {
-							var arr = parsed['result'];
-							if (arr) {
-								$("#updateTitle").text(arr["title"]);
-								$("#updateMessage").text(arr["text"]);
-								current++;
-								$("#updateCurrent").text(current);
+				if (current < totalposts) {
+					$.ajax("Ajax.php?getupdate="+(current+1), {
+						success: function (data) {
+							var parsed = JSON.parse(data);
+							if (parsed['success']) {
+								var arr = parsed['result'];
+								if (arr) {
+									$("#updateTitle").text(arr["title"]);
+									$("#updateMessage").text(arr["text"]);
+									current++;
+									$("#updateCurrent").text(current);
+								}
+								$("#updateMessage").fadeIn();
 							}
-							$("#updateMessage").fadeIn();
 						}
-					}
-				});
+					});
+				}
 			}
 			
 			function previous () {
-				$.ajax("Ajax.php?getupdate="+(current-1), {
-					success: function (data) {
-						var parsed = JSON.parse(data);
-						if (parsed['success']) {
-							var arr = parsed['result'];
-							if (arr) {
-								$("#updateTitle").text(arr["title"]);
-								$("#updateMessage").text(arr["text"]);
-								current--;
-								$("#updateCurrent").text(current);
+				if (current > 1) {
+					$.ajax("Ajax.php?getupdate="+(current-1), {
+						success: function (data) {
+							var parsed = JSON.parse(data);
+							if (parsed['success']) {
+								var arr = parsed['result'];
+								if (arr) {
+									$("#updateTitle").text(arr["title"]);
+									$("#updateMessage").text(arr["text"]);
+									current--;
+									$("#updateCurrent").text(current);
+								}
+								$("#updateMessage").fadeIn();
 							}
-							$("#updateMessage").fadeIn();
 						}
-					}
-				});
+					});
+				}
 			}
 			
 			$(document).ready(function() {
@@ -305,17 +313,21 @@
 			
 			$(document).on('pageinit', function(event){
 				$("#UpdateFeed").on("swipeleft", function() {
-					$("#updateMessage").fadeOut(500);
-					setTimeout(function() {
-						next();
-					}, 500);
+					if (current < totalposts) {
+						$("#updateMessage").fadeOut(500);
+						setTimeout(function() {
+							next();
+						}, 500);
+					}
 				});
 				
 				$("#UpdateFeed").on("swiperight", function() {
-					$("#updateMessage").fadeOut(500);
-					setTimeout(function() {
-						previous();
-					}, 500);
+					if (current > 1) {
+						$("#updateMessage").fadeOut(500);
+						setTimeout(function() {
+							previous();
+						}, 500);
+					}
 				});
 			});
 		</script>

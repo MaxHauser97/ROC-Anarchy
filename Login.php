@@ -68,10 +68,10 @@
 			<h2><span class="glyphicon glyphicon-fire"></span> ROC Anarchy</h2>
 			<form method="POST" action="Login.php" class="form-inline">
 				<div class="form-group">
-					<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam" autofocus>
+					<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam" autofocus autocorrect="off" autocapitalize="none">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" name="pwd" placeholder="Wachtwoord">
+					<input type="password" class="form-control" name="pwd" placeholder="Wachtwoord" autocorrect="off" autocapitalize="none">
 				</div>
 				<button type="submit" class="btn btn-default">Inloggen</button>
 			</form>
