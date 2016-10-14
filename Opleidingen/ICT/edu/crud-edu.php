@@ -79,8 +79,62 @@
 		
 		<div class="row">
 		<p>
-			We beginnen bij create record. Met deze functie maak je de informatie aan. Een voorbeeld hiervan is bij het registreren.
-			<pre>CREATE (database, tabel, record) (naam) ;</pre>
+			We beginnen bij create record. Met deze functie maak je de informatie aan. Een voorbeeld hiervan is bij het registreren.<br>
+			De SQL syntaxes + uitleg:
+			<pre>
+CREATE (database, table) (naam) //Maakt een database of tabel aan.
+//Bijvoorbeeld:
+CREATE DATABASE ROCAnarchy
+//^dit maakt een database genaamd ROCAnarchy aan
+
+CREATE TABLE Users (
+   id INT(6) AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(50) NOT NULL,
+   password VARCHAR(50) NOT NULL,
+   email VARCHAR(50)
+)
+//^dit maakt een tabel aan in een database met 4 kolommen: id, username, password en email.
+//De waardes van deze kolommen zijn: INT, VARCHAR, VARCHAR, en VARCHAR.
+//Integers (INT) zijn waardes die altijd hele getallen zijn. Alleen getallen als -2, 2, 444, etc. worden geaccepteerd.
+
+//Variable Character (VARCHAR) zijn waardes die je kan vergelijken met STRINGS, het zijn waardes waar letters en cijfers in mogen. Bijvoorbeeld: Gerard123
+//Let echter wel op, omdat een VARCHAR wordt gezien als TEKST kan je geen berekeningen doen als je er alleen maar cijfers in zou stoppen. Als je bijvoorbeeld
+//in een VARCHAR de waarde: 102 zou hebben, kan je geen 102+1 doen omdat je niet kan rekenen met tekst. In sommige programeertalen gebeurt er dan zelfs dit:
+//102+1 = 1021, omdat hij dan denkt dat je meer tekst wilt toevoegen, en dit gaat automatisch naar het einde van de tekst.
+
+//AUTO_INCREMENT betekent dat bij elke nieuwe row die wordt geinsert dat hij er automatisch +1 bij optelt.
+//PRIMARY KEY is de sleutel waarop een rij geidentificeerd kan worden door het systeem. Elke waarde van een primary key moet uniek zijn en niet null.
+//NOT NULL betekent dat er EEN waarde moet zijn. In programmeren is het zo dat als je NIKS terug krijgt als waarde dat het NULL is.
+
+INSERT INTO tabelnaam (kolom1, kolom2, etc.) VALUES (waardekolom1, waardekolom2, etc.)
+//Bijvoorbeeld:
+INSERT INTO Users (username, password, email) VALUES ('Jan', 'Geheim', 'Jan@gmail.com')
+//Dit voegt een nieuwe row (waardes) toe in een tabel
+//ID staat hier niet bij, omdat ID een AUTO_INCREMENT heeft, dus de waarde wordt automatisch gemaakt voor ID.
+			</pre>
+			De PHP syntaxes:
+			<pre>
+if ($_POST["submit"]) { //Voer dit alleen maar uit als een form gesubmit is
+   $conn = mysqli_connect("server", "user", "pass", "databasenaam"); //Connect met de server
+
+   mysqli_query($conn, "CREATE DATABASE ROCAnarchy"); //Maak een nieuwe database aan op de server
+
+   mysqli_select_db($conn, "ROCAnarchy"); //Selecteer een database
+
+   mysqli_query($conn, "CREATE TABLE Users(
+      id INT(6) AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(50) NOT NULL,
+      password VARCHAR(50) NOT NULL, 
+      email VARCHAR(50)
+   )"); //Maakt een nieuwe tabel aan in de  huidig geselecteerde database
+
+   $username = $_POST["username"]; //Haalt username op uit form
+   $password = $_POST["password"]; //Haalt password op uit form
+   $email = $_POST["email"]; //Haalt email op uit form
+
+   mysqli_query($conn, "INSERT INTO Users (username, password, email) VALUES ('$username', '$password', '$email')"); //Voegt nieuwe row toe
+}
+			</pre>
 			<hr>
 		</p>
 		</div>
