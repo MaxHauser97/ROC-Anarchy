@@ -93,19 +93,19 @@
 				Dit is zodat niemand die in de databases komt of de data onderschept direct de wachtwoorden kan lezen.<br>
 				Hieronder vindt je een kleine PHP functie die verstuurde data encrypt om in de database te stoppen:<br>
 				<pre>
-					$username = $_POST["username"]; //Haalt de gegevens op uit de POST data
-					$password = $_POST["wactwoord"];
-					
-					$encryptedUsername = MD5($username); //Encrypt de gegevens met MD5 encryptie
-					$encryptedPassword = MD5($password);
+$username = $_POST["username"]; //Haalt de gegevens op uit de POST data
+$password = $_POST["wactwoord"];
+
+$encryptedUsername = MD5($username); //Encrypt de gegevens met MD5 encryptie
+$encryptedPassword = MD5($password);
 				</pre>
 				Dit is ongeveer wat er gebeurd:
 				<pre>
-					$username = "Gerard";
-					$password = "IkHebEenSlechtWachtwoord";
-					
-					$encryptedUsername = "e3bbe025630ba3adb63d65f8a2457b93";
-					$encryptedPassword = "49902161976693224598bb5a79f85932";
+$username = "Gerard";
+$password = "IkHebEenSlechtWachtwoord";
+
+$encryptedUsername = "e3bbe025630ba3adb63d65f8a2457b93";
+$encryptedPassword = "49902161976693224598bb5a79f85932";
 				</pre>
 				Zoals je hierboven kan zien, is de data compleet onherkenbaar gemaakt en kan je dus niet aflezen wat het originele wachtwoord is.<br>
 				Houd wel in gedachten dat MD5 niet de enige vorm van encryptie is, voor meer soorten en geavanceerdere encryptie, klik <a href="http://php.net/manual/en/function.hash.php#104987">hier.</a><br><br>

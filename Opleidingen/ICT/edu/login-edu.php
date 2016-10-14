@@ -59,7 +59,7 @@
 			<div class="list-group">
 			  <a href="#" class="list-group-item">Connectie maken</a>
 			  <a href="#" class="list-group-item">Formulier aanmaken</a>
-			  <a href="#" class="list-group-item">Verbinden met database</a>
+			  <a href="#" class="list-group-item">Gegevens ophalen uit database</a>
 			  <a href="#" class="list-group-item">Testen</a>
 			</div>
 			
@@ -81,21 +81,24 @@
 		
 		<div class="row">
 		<p>
-			Als eerst moet er weer een connectie gemaakt worden met de database zodat de gegevens gechecked kunnen worden.<br>
-			Kopieer de code hieronder om de connectie te maken.<br>
+			Als eerst moet er een connectie gemaakt worden met de database zodat de gegevens opgehaald kunnen worden.<br>
+			<br>
 			<pre>
-$servernaam = "localhost";
-$db_gebruikersnaam = "root";
-$db_wachtwoord = "root";
+$servernaam = "localhost"; //De locatie waar je database zich bevindt.
+$db_gebruikersnaam = "root"; //De gebruikersnaam van je database
+$db_wachtwoord = "root"; //Het wachtwoord van je database
+$db_naam = ""; //De naam van de database
 
 // Create connection
-$conn = mysqli_connect($servernaam, $db_gebruikersnaam, $db_wachtwoord);
+$conn = mysqli_connect($servernaam, $db_gebruikersnaam, $db_wachtwoord, $db_naam); //Verbindt met de database
 
 // Check connection
 if (!$conn) {
-die("Connectie onsuccesvol: " . mysqli_connect_error());
+    die("Connectie onsuccesvol: " . mysqli_connect_error()); //Stopt de pagina van laden, en laat zien: Connectie onsuccesvol: *Reden*
 }
-echo "Er is connectie!";		
+else {
+    echo "Er is connectie!";
+}
 </pre>
 			<hr>
 		</p>
@@ -110,23 +113,23 @@ echo "Er is connectie!";
 		</div>
 		
 		<div class="row">
-			<div class="col-md-12"><p>Vervolgens gaan we het formulier aanmaken.<br>Hieronder is een standaard voorbeeld die je altijd nog kan aanpassen.</p></div>
+			<div class="col-md-12"><p>Vervolgens gaan we het formulier aanmaken.<br>Hieronder is een standaard voorbeeld.</p></div>
 		</div>
 		
 		<div class="row">
 			<div class="col-md-6">
 <pre>
-< form role="form">
-< div class="form-group">
-< label for="email">Email adres:</label>
-< input type="email" class="form-control" id="email">
-< /div>
-< div class="form-group">
-< label for="pwd">Wachtwoord:</label>
-< input type="password" class="form-control" id="pwd">
-< /div>
-< button type="submit" class="btn btn-default">Verstuur</button>
-< /form>	
+&lt;form method="POST" action="Login.php" role="form"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="email"&gt;Email adres:&lt;/label&gt;
+        &lt;input type="email" class="form-control" name="email"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="pwd"&gt;Wachtwoord:&lt;/label&gt;
+        &lt;input type="password" class="form-control" name="pwd"&gt;
+    &lt;/div&gt;
+    &lt;input type="submit" class="btn btn-default" value="Verstuur" name="Submit"&gt;
+&lt;/form&gt;
 </pre>			
 			</div>
 		
@@ -134,17 +137,35 @@ echo "Er is connectie!";
 				<form role="form">
 				  <div class="form-group">
 					<label for="email">Email adres:</label>
-					<input type="email" class="form-control" id="email">
+					<input type="email" class="form-control" name="email">
 				  </div>
 				  <div class="form-group">
 					<label for="pwd">Wachtwoord:</label>
-					<input type="password" class="form-control" id="pwd">
+					<input type="password" class="form-control" name="pwd">
 				  </div>
-				  <button type="submit" class="btn btn-default">Verstuur</button>
+				  <input type="submit" class="btn btn-default" value="Verstuur" name="Submit">
 				</form>			
 			</div>
 		</div>
-		<hr>	
+		<hr>
+		<div class="row">
+			<div class="col-md-12"><h2>Gegevens ophalen uit database</h2></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12"><p>Vervolgens gaan we de gegevens ophalen uit de database.<br>PROTIP: zet dit onder de onder de php code waarbij je connectie met de database maakt.</p></div>
+		</div>
+		
+		<div class="row">
+			<pre>
+if (isset($_POST["Verstuur"])) { //Als de form verstuurd is, ga verder
+    $result = mysqli_query("SELECT * FROM tabelmetusers WHERE email = ? AND password = ?", $_POST["email"], $_POST["pwd"]);
+}
+
+
+			</pre>
+		</div>
+		<hr>
 	</div>
 </div>
 
