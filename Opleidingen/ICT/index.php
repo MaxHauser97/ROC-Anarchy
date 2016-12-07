@@ -112,6 +112,10 @@
 			.noBotMargin {
 				margin-bottom: 0px;
 			}
+			
+			.panel-title[data-toggle] {
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	<body>
@@ -200,8 +204,8 @@
 			  <div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Gebruikers level</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+					  <a>Gebruikers level</a>
 					</h4>
 				  </div>
 				  <div id="collapse1" class="panel-collapse collapse">
@@ -210,8 +214,8 @@
 				</div>
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">databases koppelen</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+					  <a>databases koppelen</a>
 					</h4>
 				  </div>
 				  <div id="collapse2" class="panel-collapse collapse">
@@ -220,8 +224,8 @@
 				</div>
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Sessions</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+					  <a>Sessions</a>
 					</h4>
 				  </div>
 				  <div id="collapse3" class="panel-collapse collapse">
@@ -234,8 +238,8 @@
 			  <div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Zoek functie</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+					  <a>Zoek functie</a>
 					</h4>
 				  </div>
 				  <div id="collapse4" class="panel-collapse collapse">
@@ -244,8 +248,8 @@
 				</div>
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">limiet vaststellen</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+					  <a>limiet vaststellen</a>
 					</h4>
 				  </div>
 				  <div id="collapse5" class="panel-collapse collapse">
@@ -254,8 +258,8 @@
 				</div>
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Cookies</a>
+					<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+					  <a>Cookies</a>
 					</h4>
 				  </div>
 				  <div id="collapse6" class="panel-collapse collapse">
