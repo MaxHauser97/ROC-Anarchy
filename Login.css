@@ -49,7 +49,7 @@ form.form-inline{
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 44%;
+	top: 29%;
 	margin-left: auto;
 	margin-right: auto;
 	color: #EF5350;
@@ -179,5 +179,10 @@ form.form-inline{
 	
 	.footer .col-sm-4{
 		font-size: 1.2em;
+	}
+	
+	.wrong,
+	.error{
+		top: 44%;
 	}
 }
