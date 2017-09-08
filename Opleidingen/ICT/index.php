@@ -58,7 +58,7 @@
 		<style>
 			body{background-color: #f5f5f5;}
 			.roc{color: #EF5350;}
-			.container-fluid:nth-child(4) .col-sm-3.text-center a {bottom: 0; color: #333; left: 0; padding: 60px 59px 0 10px; position: absolute; transition: all 500ms ease 0s;}
+			.container-fluid:nth-child(4) .col-sm-3.text-center a {bottom: 0; color: #333; left: 0; padding: 60px 59px 0 10px; position: absolute; transition: all 500ms ease 0s; width: 100%;}
 			a:hover{text-decoration: none;}
 			.glyphicon.glyphicon-fire{color: #808080;}
 			h3{border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 0px;}
@@ -75,20 +75,28 @@
 				font-weight: bold;
 			}
 			.container-fluid:nth-child(4) .col-sm-3.text-center a:hover {
-			background-color: #dedede;
-			border-radius: 3px;
-			color: #337ab7;
-			padding-top: 60px;
+				background-color: #dedede;
+				border-radius: 3px;
+				color: #337ab7;
+				padding-top: 60px;
 			}
 			.container-fluid:nth-child(5) .col-md-4 a {
-			bottom: 0;
-			color: #333;
-			left: 0;
-			padding: 142px 110px 0 10px;
-			position: absolute;
+				bottom: 0;
+				color: #333;
+				left: 0;
+				padding: 105px 110px 0 10px;
+				position: absolute;
+				transition: all 500ms ease 0s;
+				width: 100%;
+			}
+			.container-fluid:nth-child(5) .col-md-4 a:hover {
+				background-color: #dedede;
+				border-radius: 3px;
+				color: #337ab7;
+				padding-top: 105px;
 			}
 			.container-fluid:nth-child(5) .col-md-4  p{
-			position: relative;
+				position: relative;
 			}
 			.zoeken {
 				background-color: #808080;
