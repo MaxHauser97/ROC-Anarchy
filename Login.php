@@ -50,7 +50,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
-		<title>ROC - Anarchy</title>
+		<title>Studenten Zelfstudie Portaal</title>
 		<link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +65,7 @@
 
 	<div id="GaNaarTMiddenVerdomme">
 		<div class="jumbotron text-center style='padding: 100px 25px;'">
-			<h2><span class="glyphicon glyphicon-fire"></span> ROC Anarchy</h2>
+			<h2><span class="glyphicon glyphicon-fire"></span> Studenten Zelfstudie Portaal</h2>
 			<form method="POST" action="Login.php" class="form-inline">
 				<div class="form-group">
 					<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam" autofocus autocorrect="off" autocapitalize="none">

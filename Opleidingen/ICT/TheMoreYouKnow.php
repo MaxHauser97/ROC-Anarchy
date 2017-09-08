@@ -77,7 +77,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <title>The More You Know</title>
+  <title>SZP - The More You Know</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php if (usesSSL) {echo "https";} else {echo "http";} ?>://st27.nl/School/siteIcon.png">
